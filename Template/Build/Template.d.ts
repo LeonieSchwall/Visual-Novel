@@ -22,7 +22,7 @@ declare namespace Template {
         narrator: {
             name: string;
         };
-        aisaka: {
+        boy: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -31,7 +31,16 @@ declare namespace Template {
                 upset: string;
             };
         };
-        kohana: {
+        girl: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                upset: string;
+            };
+        };
+        girl2: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -41,6 +50,7 @@ declare namespace Template {
             };
         };
     };
+    function fromLeftToRight(): ƒS.AnimationDefinition;
     let dataForSave: {};
 }
 declare namespace Template {
