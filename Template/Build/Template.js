@@ -19,9 +19,9 @@ var Template;
         click: "",
     };
     Template.locations = {
-        bedroom: {
-            name: "Bedroom",
-            background: "./Images/background/zimmer.jpg"
+        lagerfeuer: {
+            name: "Lagerfeuer",
+            background: "./Images/background/lagerfeuer.webp"
         }
     };
     Template.characters = {
@@ -29,29 +29,29 @@ var Template;
             name: "",
         },
         boy: {
-            name: "Alex",
-            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            name: "Jakob: ",
+            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
                 angry: "",
-                happy: "./Images/Characters/Boy.png",
-                upset: ""
-            }
-        },
-        girl: {
-            name: "Nina",
-            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                angry: "",
-                happy: "./Images/Characters/aisaka.png",
+                happy: "./Images/Characters/Boy_.png",
                 upset: ""
             }
         },
         girl2: {
-            name: "Lena",
+            name: "Nina: ",
             origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                angry: "./Images/Characters/Girl.png",
+                angry: "./Images/Characters/Nina.png",
                 happy: "",
+                upset: ""
+            }
+        },
+        luna: {
+            name: "Luna: ",
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "./Images/Characters/Luna.png",
+                happy: "./Images/Characters/Luna.png",
                 upset: ""
             }
         },
@@ -88,38 +88,65 @@ var Template;
                 T0001: ""
             },
             boy: {
-                T0000: "Hi",
+                T0000: "Hey, woher hast du denn die Marshmallows?",
+                T0001: "Danke, möchtest du auch noch welche?",
+                T0002: "Alles klar, dann lass uns los gehen.",
+                T0003: "Ja, sonst erfrieren wir ja noch hier in der Kälte",
+                T0004: "Nein, ich gehe gleich zu meinen Freunden.",
+                T0005: "Ähm ich bin Jakob und wer bist du?",
+                T0006: "Hi Nina, ich unterhalte mich doch nur mit Luna.",
+                T0007: "Wer ist dir denn über die Leber gelaufen?",
             },
-            girl: {
-                T0000: "Wer bist du?",
+            luna: {
+                T0000: "Die gibt es da drüben.",
+                T0001: "Ja sehr gerne, ich komme einfach kurz mit.",
+                T0002: "Wollen wir uns danach ans Feuer setzen?",
+                T0003: "Dann lass uns eine Decke holen und uns zusammenkuscheln.",
+                T0004: "Schade, viel Spaß dir noch."
             },
             girl2: {
-                T0000: "Ich heiße Lena.",
+                T0000: "Wer bist du und was willst du von meiner Freundin?",
+                T0001: "Nina",
+                T0002: "Lass sie bloß in Ruhe du Idiot!",
             }
         };
-        await Template.ƒS.Location.show(Template.locations.bedroom);
+        await Template.ƒS.Location.show(Template.locations.lagerfeuer);
         await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge);
-        await Template.ƒS.Character.show(Template.characters.girl, Template.characters.girl.pose.happy, Template.ƒS.positions.bottomright);
+        await Template.ƒS.Character.show(Template.characters.luna, Template.characters.luna.pose.happy, Template.ƒS.positions.bottomleft);
+        await Template.ƒS.Character.show(Template.characters.boy, Template.characters.boy.pose.happy, Template.ƒS.positions.bottomright);
         await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.girl, text.boy.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.girl, "Hi");
-        await Template.ƒS.Character.animate(Template.characters.girl, Template.characters.girl.pose.happy, Template.fromLeftToRight());
-        await Template.ƒS.Character.hide(Template.characters.girl);
+        await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0001);
+        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0001);
+        await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0002);
+        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0002);
+        //await ƒS.Character.animate(characters.girl3, characters.girl3.pose.happy, fromLeftToRight());
+        //await ƒS.Character.hide(characters.girl3);
         let firstDialogueElementOptions = {
-            iSayOk: "Ok",
-            iSayNo: "No",
-            iSayYes: "Yes"
+            iSayNo: "Nein",
+            iSayOk: "Okay",
+            iSayYes: "Ja"
         };
         let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass");
         switch (firstDialogueElement) {
-            case firstDialogueElementOptions.iSayOk:
-                await Template.ƒS.Speech.tell(Template.characters.girl, "Hi2.");
-                break;
             case firstDialogueElementOptions.iSayNo:
-                await Template.ƒS.Character.show(Template.characters.girl2, Template.characters.girl2.pose.angry, Template.ƒS.positions.center);
+                await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0004);
+                await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0004);
+                break;
+            case firstDialogueElementOptions.iSayOk:
+                await Template.ƒS.Character.show(Template.characters.girl2, Template.characters.girl2.pose.angry, Template.ƒS.positions.bottomleft);
+                await Template.ƒS.update(1);
+                await Template.ƒS.Speech.tell(Template.characters.girl2, text.girl2.T0000);
+                await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0005);
+                await Template.ƒS.Speech.tell(Template.characters.girl2, text.girl2.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0006);
+                await Template.ƒS.Speech.tell(Template.characters.girl2, text.girl2.T0002);
+                await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0007);
                 break;
             case firstDialogueElementOptions.iSayYes:
-                await Template.ƒS.Speech.tell(Template.characters.girl2, text.girl2.T0000);
+                await Template.ƒS.Speech.tell(Template.characters.boy, text.boy.T0003);
+                await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0003);
                 break;
         }
     }

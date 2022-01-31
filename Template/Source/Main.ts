@@ -21,10 +21,18 @@ namespace Template {
 
   };
 
+  export let items = {
+    pen: {
+      name:"Roter Stift",
+      description:"",
+      image:"",
+    }
+  };
+
   export let locations = {
-    bedroom: {
-      name: "Bedroom",
-      background: "./Images/background/zimmer.jpg"
+    lagerfeuer: {
+      name: "Lagerfeuer",
+      background: "./Images/background/lagerfeuer.webp"
     }
   };
 
@@ -33,39 +41,31 @@ namespace Template {
       name:"",
     },
     boy: {
-      name: "Alex",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      name: "Jakob: ",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
         angry: "",
-        happy: "./Images/Characters/Boy.png",
+        happy: "./Images/Characters/Boy_.png",
         upset: ""
       }
     },
     
-    girl: {
-      name: "Nina",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose: {
-        angry: "",
-        happy: "./Images/Characters/Girl3.png",
-        upset: ""
-      }
-    },
+  
     girl2: {
-      name: "Marla",
+      name: "Nina: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Girl.png",
+        angry: "./Images/Characters/Nina.png",
         happy: "",
         upset: ""
       }
     },
-    girl3: {
-      name: "Luna",
+    luna: {
+      name: "Luna: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Girl3.png",
-        happy: "",
+        angry: "./Images/Characters/Luna.png",
+        happy: "./Images/Characters/Luna.png",
         upset: ""
       }
     },
@@ -85,8 +85,70 @@ namespace Template {
 
   };
 
+  //Menü
+  let inGameMenu ={
+    save: "Save",
+    load: "Load",
+    close: "Close",
+    open: ""
+  };
+
+  let gameMenu: ƒS.Menu;
+
+  async function buttonFunctionalities(_option: string): Promise<void> {
+    console.log(_option);
+    switch (_option){
+      case inGameMenu.save:
+        await ƒS.Progress.save();
+        break;
+      case inGameMenu.load:
+        await ƒS.Progress.load();
+        break;
+      case inGameMenu.close:
+        gameMenu.close();
+        break;
+      case inGameMenu.open:
+        gameMenu.open();
+        break;      
+    }
+  }
+
+  let menu: boolean = true;
+
+  //Shortcuts fürs Menu
+  document.addEventListener("keydown", hndKeyPress);
+  async function hndKeyPress(_event:KeyboardEvent): Promise<void> {
+    switch (_event.code){
+      case ƒ.KEYBOARD_CODE.F8:
+        console.log("Save");
+        await ƒS.Progress.save();
+        break;
+      case ƒ.KEYBOARD_CODE.F9:
+        console.log("Load");
+        await ƒS.Progress.load();
+        break; 
+      case ƒ.KEYBOARD_CODE.M:
+        if (menu) {
+          console.log("Close");
+          gameMenu.close();
+          menu = false;
+        }  
+        else {
+          console.log("Open");
+          gameMenu.open();
+          menu = true;
+        } 
+
+    }
+    
+  }
+
   window.addEventListener("load", start);
   function start(_event: Event): void {
+
+    //Menu
+    gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
+    //Szenen
     let scenes: ƒS.Scenes = [
       { scene: Scene, name: "SceneOne" }
     ];

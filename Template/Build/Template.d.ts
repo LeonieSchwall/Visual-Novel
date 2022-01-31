@@ -13,7 +13,7 @@ declare namespace Template {
         click: string;
     };
     let locations: {
-        bedroom: {
+        lagerfeuer: {
             name: string;
             background: string;
         };
@@ -31,7 +31,7 @@ declare namespace Template {
                 upset: string;
             };
         };
-        girl: {
+        girl2: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -40,7 +40,7 @@ declare namespace Template {
                 upset: string;
             };
         };
-        girl2: {
+        luna: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
