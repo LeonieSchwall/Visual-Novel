@@ -12,6 +12,13 @@ declare namespace Template {
         backgroundTheme: string;
         click: string;
     };
+    let items: {
+        pen: {
+            name: string;
+            description: string;
+            image: string;
+        };
+    };
     let locations: {
         lagerfeuer: {
             name: string;
@@ -55,4 +62,7 @@ declare namespace Template {
 }
 declare namespace Template {
     function Scene(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene1(): ƒS.SceneReturn;
 }

@@ -3,7 +3,7 @@ var Template;
 (function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
-    console.log("Tutorial_WS21 starting");
+    console.log("Template");
     //define transition//
     Template.transitions = {
         clock: {
@@ -17,6 +17,13 @@ var Template;
         backgroundTheme: "",
         //sound
         click: "",
+    };
+    Template.items = {
+        pen: {
+            name: "Roter Stift",
+            description: "A red pen.",
+            image: "",
+        }
     };
     Template.locations = {
         lagerfeuer: {
@@ -67,8 +74,62 @@ var Template;
     }
     Template.fromLeftToRight = fromLeftToRight;
     Template.dataForSave = {};
+    //Menü
+    let inGameMenu = {
+        save: "Save",
+        load: "Load",
+        close: "Close",
+        open: "Open"
+    };
+    let gameMenu;
+    async function buttonFunctionalities(_option) {
+        console.log(_option);
+        switch (_option) {
+            case inGameMenu.save:
+                await Template.ƒS.Progress.save();
+                break;
+            case inGameMenu.load:
+                await Template.ƒS.Progress.load();
+                break;
+            case inGameMenu.close:
+                gameMenu.close();
+                break;
+            case inGameMenu.open:
+                gameMenu.open();
+                break;
+        }
+    }
+    let menu = true;
+    //Shortcuts fürs Menu
+    document.addEventListener("keydown", hndKeyPress);
+    async function hndKeyPress(_event) {
+        switch (_event.code) {
+            case Template.ƒ.KEYBOARD_CODE.F8:
+                console.log("Save");
+                await Template.ƒS.Progress.save();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.F9:
+                console.log("Load");
+                await Template.ƒS.Progress.load();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.M:
+                if (menu) {
+                    console.log("Close");
+                    gameMenu.close();
+                    menu = false;
+                }
+                else {
+                    console.log("Open");
+                    gameMenu.open();
+                    menu = true;
+                }
+        }
+    }
     window.addEventListener("load", start);
     function start(_event) {
+        //Menu
+        gameMenu = Template.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
+        //Szenen
         let scenes = [
             { scene: Template.Scene, name: "SceneOne" }
         ];
@@ -123,6 +184,8 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0002);
         //await ƒS.Character.animate(characters.girl3, characters.girl3.pose.happy, fromLeftToRight());
         //await ƒS.Character.hide(characters.girl3);
+        Template.ƒS.Inventory.add(Template.items.pen);
+        await Template.ƒS.Inventory.open();
         let firstDialogueElementOptions = {
             iSayNo: "Nein",
             iSayOk: "Okay",
@@ -151,5 +214,43 @@ var Template;
         }
     }
     Template.Scene = Scene;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene1() {
+        console.log("FudgeStory Template Scene starting");
+        let text = {
+            narrator: {
+                T0000: "",
+                T0001: ""
+            },
+            aisaka: {
+                T0000: "HEY",
+                T0001: ""
+            },
+            kohana: {
+                T0000: "HII"
+            }
+        };
+        await Template.ƒS.Location.show(Template.locations.bedroom);
+        await Template.ƒS.update(1);
+        await Template.ƒS.Character.show(Template.characters.aisaka, Template.characters.aisaka.pose.happy, Template.ƒS.positionPercent(30, 100));
+        await Template.ƒS.update(1);
+        // Novel Page
+        Template.ƒS.Text.setClass("text");
+        Template.ƒS.Text.print("Lies mich.");
+        await Template.ƒS.Speech.tell(Template.characters.aisaka, text.aisaka.T0000);
+        Template.dataForSave.points += 10;
+        console.log(Template.dataForSave.points);
+        await Template.ƒS.Speech.tell(Template.characters.aisaka, "Helloo");
+        await Template.ƒS.Character.hide(Template.characters.aisaka);
+        await Template.ƒS.update(1);
+        // return "";
+        // if (dataForSave.points == 50) {
+        //   return "";
+        // return SzenenFunktionsname();
+        // }
+    }
+    Template.Scene1 = Scene1;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map
