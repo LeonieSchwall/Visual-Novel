@@ -18,28 +18,31 @@ namespace Template {
   
   
   
-      await ƒS.Location.show(locations.büro);
+      await ƒS.Location.show(locations.bibliothek);
       await ƒS.update(1);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
       await ƒS.update(1);
-
+      await ƒS.Character.animate(characters.schlüssel, characters.schlüssel.pose.happy, fromleftToCenter());
       // Novel Page
       ƒS.Text.setClass("text");
       ƒS.Text.print("Lies mich.");
-    
+      ƒS.Inventory.add(items.key);
+      //await ƒS.Inventory.open();
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
-      //dataForSave.points += 10;
+      dataForSave.points = 50;
       //console.log(dataForSave.points);
       await ƒS.Speech.tell(characters.camille, "Helloo");
+      const t = await ƒS.Inventory.open();
+      console.log(t)
       await ƒS.Character.hide(characters.camille);
       await ƒS.update(1);
   
   
       // return "";
   
-      // if (dataForSave.points == 50) {
-      //   return "";
+      if (dataForSave.points === 50) {
+        return "Introduction";
         // return SzenenFunktionsname();
-      // }
+      }
     }
 }
