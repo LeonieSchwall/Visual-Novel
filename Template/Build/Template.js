@@ -7,7 +7,7 @@ var Template;
             narrator: {
                 T0000: "Das ist Detektivin Beuford.",
                 T0001: "Sie ist gerade fertig geworden mit ihrer Ausbildung.",
-                T0002: "Wir werden sie heute bei ihrem ertsen Fall begleiten.",
+                T0002: "Wir werden sie heute bei ihrem ersten Fall begleiten.",
                 T0003: "Als erstes braucht Sie allerdings einen Vornamen. ",
             },
         };
@@ -24,7 +24,7 @@ var Template;
         Template.data.protagonist.name = await Template.ƒS.Speech.getInput();
         await Template.ƒS.update(1);
         Template.characters.camille.name = Template.data.protagonist.name;
-        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem ersten Fall beginnen.", true);
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem Fall beginnen.", true);
         Template.ƒS.Character.hideAll();
         Template.ƒS.Speech.clear();
         Template.ƒS.Sound.fade(Template.sound.backgroundTheme, 0, 0.2, true);
@@ -107,7 +107,7 @@ var Template;
         },
         money: {
             name: "Geldstapel",
-            description: "Warum hatte das Opfer so viel Bargeld?",
+            description: "Wer hat das Geld geschickt?",
             image: "./Images/Items/Geld.png",
         },
     };
@@ -117,7 +117,7 @@ var Template;
             name: "Startscreen",
             background: "./Images/background/Bibliothek.jpg",
         },
-        büro: {
+        buero: {
             name: "Büro",
             background: "./Images/background/Bibliothek.png",
         },
@@ -153,21 +153,15 @@ var Template;
         narrator: {
             name: "",
         },
+        smith: {
+            name: "Mr. Smith",
+        },
         camille: {
             name: Template.data.protagonist.name,
             origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
                 angry: "",
                 happy: "./Images/Characters/Luna.png",
-                upset: "",
-            },
-        },
-        schlüssel: {
-            name: "schlüssel",
-            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
-            pose: {
-                angry: "",
-                happy: "./Images/Items/Schluessel.png",
                 upset: "",
             },
         },
@@ -204,6 +198,24 @@ var Template;
             pose: {
                 angry: "./Images/Characters/Luna.png",
                 happy: "./Images/Characters/Luna.png",
+                upset: "",
+            },
+        },
+        schlüssel: {
+            name: "schlüssel",
+            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                angry: "",
+                happy: "./Images/Items/Schluessel.png",
+                upset: "",
+            },
+        },
+        geld: {
+            name: "Geld",
+            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                angry: "",
+                happy: "./Images/Items/Geld.png",
                 upset: "",
             },
         },
@@ -347,26 +359,79 @@ var Template;
     async function Scene1() {
         console.log("FudgeStory Template Scene1 starting");
         let text = {
-            narrator: {
-                T0000: "",
-                T0001: ""
+            smith: {
+                T0000: "Guten Morgen Frau Beuford und herzlich Willkommen bei uns im Team.",
+                T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
+                T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
+                T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
+                T0004: "Allerdings, es geht um den Todesfall in der Familie Grisham.",
+                T0005: "Denke ich auch, aber wenn es um so viel Geld geht würde ich einfach mal nachforschen.",
+                T0006: "Sehr gut, ich wünsche einen erfolgreichen ersten Fall Miss Beuford."
             },
             camille: {
-                T0000: "HEY",
-                T0001: ""
+                T0000: "Was ein schöner Tag heute ist, ich bin schon ganz aufgeregt was ich an meinem ersten Tag zu tun bekomme.",
+                T0001: "Ich habe ein Paket bekommen, was da wohl drin ist.",
+                T0002: "Oha was ist das denn für ein Haufen Geld?",
+                T0003: "Moment da ist eine Notiz dabei, was auf Ihr wohl steht?",
+                T0004: "Mh das sagt mir jetzt nicht wirklich was!",
+                T0005: "Guten Tag, hier Detektivin Beuford am Apparat.",
+                T0006: "Vielen Dank Mr. Smith.",
+                T0007: "Ja, ich habe ein Paket erhalten, in dem eine Menga Geld lag und eine seltsame Notiz.",
+                T0008: "Einen Auftrag, ich habe nur eine Adresse und sonst nichts.",
+                T0009: "Und um was es geht es?",
+                T0010: "Grisham ,ich dachte das war Selbstmord.",
+                T0011: "Alles klar Mr. Smith, ich werde mal vorbeischauen.",
+                T0012: "Na dann los zu den Grishams!",
+                T0013: "Hm nur eine Adresse, mal sehen wo das ist.",
+                T0014: "Das ist ja der Todesfall der Grisham Familie. Das war aber doch ein Selbstmord.",
+                T0015: "Schaden wird es wohl nicht mal vorbeizufahren, es scheint jemanden wichtig zu sein bei der Menge Geld."
             },
         };
-        await Template.ƒS.Location.show(Template.locations.bibliothek);
+        await Template.ƒS.Location.show(Template.locations.buero);
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.camille, Template.characters.camille.pose.happy, Template.ƒS.positionPercent(30, 100));
         await Template.ƒS.update(1);
-        await Template.ƒS.Character.animate(Template.characters.schlüssel, Template.characters.schlüssel.pose.happy, Template.fromleftToCenter());
+        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0001);
+        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0002);
+        await Template.ƒS.Character.animate(Template.characters.geld, Template.characters.geld.pose.happy, Template.fromleftToCenter());
+        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0003);
         // Novel Page
         Template.ƒS.Text.setClass("text");
-        Template.ƒS.Text.print("Lies mich.");
-        Template.ƒS.Inventory.add(Template.items.key);
+        Template.ƒS.Text.print("34 Worlington Street");
+        Template.ƒS.Inventory.add(Template.items.money);
         //await ƒS.Inventory.open();
-        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0004);
+        let firstDialogueElementOptions = {
+            iSayYes: "Anruf annehmen",
+            iSayNo: "Anruf ignorieren"
+        };
+        let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass");
+        switch (firstDialogueElement) {
+            case firstDialogueElementOptions.iSayYes:
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0005);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0000);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0006);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0007);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0002);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0008);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0003);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0009);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0004);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0010);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0005);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0011);
+                await Template.ƒS.Speech.tell(Template.characters.smith, text.smith.T0006);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0012);
+                break;
+            case firstDialogueElementOptions.iSayNo:
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0013);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0014);
+                await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0015);
+                break;
+        }
+        await Template.ƒS.Character.animate(Template.characters.camille, Template.characters.camille.pose.happy, Template.fromLeftToRight());
         Template.dataForSave.points = 50;
         //console.log(dataForSave.points);
         await Template.ƒS.Speech.tell(Template.characters.camille, "Helloo");
@@ -392,40 +457,51 @@ var Template;
                 T0001: ""
             },
             camille: {
-                T0000: "Hey, woher hast du denn die Marshmallows?",
-                T0001: "Danke, möchtest du auch noch welche?",
-                T0002: "Alles klar, dann lass uns los gehen.",
-                T0003: "Ja, sonst erfrieren wir ja noch hier in der Kälte",
-                T0004: "Nein, ich gehe gleich zu meinen Freunden.",
-                T0005: "Ähm ich bin Jakob und wer bist du?",
-                T0006: "Hi Nina, ich unterhalte mich doch nur mit Luna.",
-                T0007: "Wer ist dir denn über die Leber gelaufen?",
+                T0000: "Guten Tag! Bin ich hier richtig bei den Grishams?",
+                T0001: "Ich bin Detektivin und habe heute morgen den Auftrag bekommen hier nachzuforschen.",
+                T0002: "Darf ich fragen wer sie sind?",
+                T0003: "Sehr angenehm Sie kennenzulernen.",
+                T0004: "Wissen Sie vielleicht wer mich engagiert haben könnte?",
+                T0005: "Ja das stimmt, dennoch wurde ich engagiert und würde mich gerne einmal umsehen wenn es Ihnen Recht ist.",
+                T0006: "Sehr gerne, ich warte.",
+                T0007: "Guten tag Mrs. Grisham. Mein herzliches Beileid für Ihren Verlust.",
+                T0008: "Ja das bin ich.",
+                T0009: "Mord? Es wird doch angenommen das es ein Selbstmord war.",
+                T0010: "Haben Sie mich dann engagiert?",
+            },
+            james: {
+                T0000: "Guten Tag, ja das sind sie.",
+                T0001: "Was kann ich für sie tun?",
+                T0002: "Davon weiß ich nichts.",
+                T0003: "Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
+                T0004: "Leider nein, denn es ist ja eigentlich alles klar.",
+                T0005: "Mr. Grishams Tod war Selbstmord!",
+                T0006: "Von mir aus schon, Ich muss allerdings Mrs. Grisham fragen.",
+                T0007: "Sie ist seit dem Tod Ihres Mannes sehr aufgelöst.",
+                T0008: "Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
+                T0009: "Leider nein, denn es ist ja eigentlich alles klar.",
             },
             violet: {
-                T0000: "Die gibt es da drüben.",
-                T0001: "Ja sehr gerne, ich komme einfach kurz mit.",
-                T0002: "Wollen wir uns danach ans Feuer setzen?",
-                T0003: "Dann lass uns eine Decke holen und uns zusammenkuscheln.",
-                T0004: "Schade, viel Spaß dir noch."
-            },
-            luna: {
-                T0000: "Wer bist du und was willst du von meiner Freundin?",
-                T0001: "Nina",
-                T0002: "Lass sie bloß in Ruhe du Idiot!",
-                T0003: "...",
+                T0000: "Guten Tag, sind Sie die Detektivin?",
+                T0001: "Also sind Sie nun die Detektivin?",
+                T0002: "Dann kommen Sie schnell mit rein und lösen Sie den Mord an meinem Mann auf.",
+                T0003: "Das war KEIN Selbstmord, William würde so etwas nie tun.",
+                T0004: "Nein, aber ich bin froh das es jemand getan hat.",
+                T0005: "Los kommen Sie ich zeige Ihnen den Tatort."
             }
         };
-        await Template.ƒS.Location.show(Template.locations.kammer);
+        await Template.ƒS.Location.show(Template.locations.haus);
         await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge);
-        await Template.ƒS.Character.show(Template.characters.luna, Template.characters.luna.pose.happy, Template.ƒS.positions.bottomleft);
-        await Template.ƒS.Character.show(Template.characters.camille, Template.characters.camille.pose.happy, Template.ƒS.positions.bottomright);
+        await Template.ƒS.Character.show(Template.characters.camille, Template.characters.camille.pose.happy, Template.ƒS.positions.bottomleft);
+        await Template.ƒS.Character.show(Template.characters.james, Template.characters.james.pose.happy, Template.ƒS.positions.bottomright);
         await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.james, text.james.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.james, text.james.T0001);
         await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0001);
-        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0001);
+        await Template.ƒS.Speech.tell(Template.characters.james, text.james.T0002);
         await Template.ƒS.Speech.tell(Template.characters.camille, text.camille.T0002);
-        await Template.ƒS.Speech.tell(Template.characters.luna, text.luna.T0002);
+        await Template.ƒS.Speech.tell(Template.characters.james, text.james.T0002);
         //await ƒS.Character.animate(characters.girl3, characters.girl3.pose.happy, fromLeftToRight());
         //await ƒS.Character.hide(characters.girl3);
         // ƒS.Inventory.add(items.key);

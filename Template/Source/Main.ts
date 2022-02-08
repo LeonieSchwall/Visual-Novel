@@ -76,7 +76,7 @@ namespace Template {
     },
     money: {
       name: "Geldstapel",
-      description: "Warum hatte das Opfer so viel Bargeld?",
+      description: "Wer hat das Geld geschickt?",
       image: "./Images/Items/Geld.png",
     },
   };
@@ -87,7 +87,7 @@ namespace Template {
       name: "Startscreen",
       background: "./Images/background/Bibliothek.jpg",
     },
-    büro: {
+    buero: {
       name: "Büro",
       background: "./Images/background/Bibliothek.png",
     },
@@ -125,6 +125,11 @@ namespace Template {
     narrator: {
       name: "",
     },
+
+    smith: {
+      name: "Mr. Smith",
+    },
+
     camille: {
       name: data.protagonist.name,
       origin: ƒS.ORIGIN.BOTTOMLEFT,
@@ -134,16 +139,7 @@ namespace Template {
         upset: "",
       },
     },
-    schlüssel: {
-      name:"schlüssel",
-      origin: ƒS.ORIGIN.BOTTOMLEFT,
-      pose: {
-        angry: "",
-        happy: "./Images/Items/Schluessel.png",
-        upset: "",
-      },
-    },
-
+   
     violet: {
       name: "Violet Lakefield: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
@@ -180,6 +176,25 @@ namespace Template {
         upset: "",
       },
     },
+    schlüssel: {
+      name:"schlüssel",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      pose: {
+        angry: "",
+        happy: "./Images/Items/Schluessel.png",
+        upset: "",
+      },
+    },
+    geld: {
+      name:"Geld",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      pose: {
+        angry: "",
+        happy: "./Images/Items/Geld.png",
+        upset: "",
+      },
+    },
+
   };
   //Animation//
   export function fromLeftToRight(): ƒS.AnimationDefinition {

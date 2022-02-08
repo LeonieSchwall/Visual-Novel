@@ -79,7 +79,7 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        büro: {
+        buero: {
             name: string;
             background: string;
         };
@@ -113,16 +113,10 @@ declare namespace Template {
         narrator: {
             name: string;
         };
-        camille: {
+        smith: {
             name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {
-                angry: string;
-                happy: string;
-                upset: string;
-            };
         };
-        schlüssel: {
+        camille: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -159,6 +153,24 @@ declare namespace Template {
             };
         };
         maria: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                upset: string;
+            };
+        };
+        schlüssel: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                upset: string;
+            };
+        };
+        geld: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {

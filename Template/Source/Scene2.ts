@@ -8,44 +8,55 @@ namespace Template {
         T0001: ""
       },
       camille:{
-        T0000:"Hey, woher hast du denn die Marshmallows?",
-        T0001:"Danke, möchtest du auch noch welche?",
-        T0002:"Alles klar, dann lass uns los gehen.",
-        T0003:"Ja, sonst erfrieren wir ja noch hier in der Kälte",
-        T0004:"Nein, ich gehe gleich zu meinen Freunden.",
-        T0005:"Ähm ich bin Jakob und wer bist du?",
-        T0006:"Hi Nina, ich unterhalte mich doch nur mit Luna.",
-        T0007:"Wer ist dir denn über die Leber gelaufen?",
-
+        T0000:"Guten Tag! Bin ich hier richtig bei den Grishams?",
+        T0001:"Ich bin Detektivin und habe heute morgen den Auftrag bekommen hier nachzuforschen.",
+        T0002:"Darf ich fragen wer sie sind?",
+        T0003:"Sehr angenehm Sie kennenzulernen.",
+        T0004:"Wissen Sie vielleicht wer mich engagiert haben könnte?",
+        T0005:"Ja das stimmt, dennoch wurde ich engagiert und würde mich gerne einmal umsehen wenn es Ihnen Recht ist.",
+        T0006:"Sehr gerne, ich warte.",
+        T0007:"Guten tag Mrs. Grisham. Mein herzliches Beileid für Ihren Verlust.",
+        T0008:"Ja das bin ich.",
+        T0009:"Mord? Es wird doch angenommen das es ein Selbstmord war.",
+        T0010:"Haben Sie mich dann engagiert?",
+    
       },
 
+      james:{
+        T0000:"Guten Tag, ja das sind sie.",
+        T0001:"Was kann ich für sie tun?",
+        T0002:"Davon weiß ich nichts.",
+        T0003:"Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
+        T0004:"Leider nein, denn es ist ja eigentlich alles klar.",
+        T0005:"Mr. Grishams Tod war Selbstmord!",
+        T0006:"Von mir aus schon, Ich muss allerdings Mrs. Grisham fragen.",
+        T0007:"Sie ist seit dem Tod Ihres Mannes sehr aufgelöst.",
+        T0008:"Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
+        T0009:"Leider nein, denn es ist ja eigentlich alles klar.",
+
+
+      },
       violet:{
-        T0000:"Die gibt es da drüben.",
-        T0001:"Ja sehr gerne, ich komme einfach kurz mit.",
-        T0002:"Wollen wir uns danach ans Feuer setzen?",
-        T0003:"Dann lass uns eine Decke holen und uns zusammenkuscheln.",
-        T0004:"Schade, viel Spaß dir noch."
-
-
-      },
-      luna:{
-        T0000:"Wer bist du und was willst du von meiner Freundin?",
-        T0001:"Nina",
-        T0002:"Lass sie bloß in Ruhe du Idiot!",
-        T0003:"...",
+        T0000:"Guten Tag, sind Sie die Detektivin?",
+        T0001:"Also sind Sie nun die Detektivin?",
+        T0002:"Dann kommen Sie schnell mit rein und lösen Sie den Mord an meinem Mann auf.",
+        T0003:"Das war KEIN Selbstmord, William würde so etwas nie tun.",
+        T0004: "Nein, aber ich bin froh das es jemand getan hat.",
+        T0005: "Los kommen Sie ich zeige Ihnen den Tatort."
       }
     };
-    await ƒS.Location.show(locations.kammer);
+    await ƒS.Location.show(locations.haus);
     await ƒS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
-    await ƒS.Character.show(characters.luna, characters.luna.pose.happy, ƒS.positions.bottomleft);
-    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomright);
+    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomleft);
+    await ƒS.Character.show(characters.james, characters.james.pose.happy, ƒS.positions.bottomright);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.camille, text.camille.T0000);
-    await ƒS.Speech.tell(characters.luna, text.luna.T0000);
+    await ƒS.Speech.tell(characters.james, text.james.T0000);
+    await ƒS.Speech.tell(characters.james, text.james.T0001);
     await ƒS.Speech.tell(characters.camille, text.camille.T0001);
-    await ƒS.Speech.tell(characters.luna, text.luna.T0001);
+    await ƒS.Speech.tell(characters.james, text.james.T0002);
     await ƒS.Speech.tell(characters.camille, text.camille.T0002);
-    await ƒS.Speech.tell(characters.luna, text.luna.T0002);
+    await ƒS.Speech.tell(characters.james, text.james.T0002);
     //await ƒS.Character.animate(characters.girl3, characters.girl3.pose.happy, fromLeftToRight());
     //await ƒS.Character.hide(characters.girl3);
     // ƒS.Inventory.add(items.key);

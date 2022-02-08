@@ -6,7 +6,7 @@ namespace Template {
       narrator: {
         T0000: "Das ist Detektivin Beuford.",
         T0001: "Sie ist gerade fertig geworden mit ihrer Ausbildung.",
-        T0002: "Wir werden sie heute bei ihrem ertsen Fall begleiten.",
+        T0002: "Wir werden sie heute bei ihrem ersten Fall begleiten.",
         T0003: "Als erstes braucht Sie allerdings einen Vornamen. ",
       
       },
@@ -26,7 +26,7 @@ namespace Template {
     data.protagonist.name = await ƒS.Speech.getInput();
     await ƒS.update(1);
     characters.camille.name = data.protagonist.name;
-    await ƒS.Speech.tell(characters.narrator, data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem ersten Fall beginnen.", true);
+    await ƒS.Speech.tell(characters.narrator, data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem Fall beginnen.", true);
     ƒS.Character.hideAll();
     ƒS.Speech.clear();
     ƒS.Sound.fade(sound.backgroundTheme, 0, 0.2, true);
