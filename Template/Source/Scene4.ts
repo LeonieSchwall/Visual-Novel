@@ -1,6 +1,6 @@
 namespace Template {
-    export async function Scene1(): ƒS.SceneReturn {
-      console.log("FudgeStory Template Scene1 starting");
+    export async function Scene4(): ƒS.SceneReturn {
+      console.log("FudgeStory Template Scene4 starting");
     
     
       let text = {

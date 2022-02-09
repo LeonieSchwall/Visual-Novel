@@ -141,16 +141,16 @@ namespace Template {
     },
    
     violet: {
-      name: "Violet Lakefield: ",
+      name: "Violet Grisham: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./Images/Characters/Nina.png",
-        happy: "",
+        happy: "./Images/Characters/Nina.png",
         upset: "",
       },
     },
     luna: {
-      name: "Luna Lakefield: ",
+      name: "Luna Grisham: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./Images/Characters/Luna.png",
@@ -167,8 +167,8 @@ namespace Template {
         upset: "",
       },
     },
-    maria: {
-      name: "Maria: ",
+    marie: {
+      name: "Marie: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./Images/Characters/Luna.png",
@@ -178,20 +178,51 @@ namespace Template {
     },
     schlüssel: {
       name:"schlüssel",
-      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "",
-        happy: "./Images/Items/Schluessel.png",
-        upset: "",
+        normal: "./Images/Items/Schluessel.png",
       },
     },
     geld: {
       name:"Geld",
-      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "",
-        happy: "./Images/Items/Geld.png",
-        upset: "",
+        normal: "./Images/Items/Geld.png",
+      },
+    },
+    buch: {
+      name:"Tagebuch",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Tagebuch.png",
+      },
+    },
+    safe: {
+      name:"Safe",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Safe.png",
+      },
+    },
+    knife: {
+      name:"Messer",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Messer.png",
+      },
+    },
+    poison: {
+      name:"Gift",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Gift.png",
+      },
+    },
+    labor: {
+      name:"Laborbericht",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Laborbericht.png",
       },
     },
 
@@ -220,6 +251,14 @@ namespace Template {
       start: { translation: ƒS.positions.bottomleft },
       end: { translation: ƒS.positionPercent(31, 100) },
       duration: 1,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
+    };
+  }
+  export function fromCenterToCenter(): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.2, 0.2) },
+      end: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.2, 0.2) },
+      duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
     };
   }
@@ -329,6 +368,9 @@ namespace Template {
       { scene: Introduction, name: "Introduction" },
       { scene: Scene1, name: "Scene1" },
       { scene: Scene2, name: "Scene2" },
+      { scene: Scene3, name: "Scene3" },
+      { scene: GoodEnding, name: "GoodEnding" },
+      { scene: BadEnding, name: "BadEnding" },
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

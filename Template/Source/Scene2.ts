@@ -19,7 +19,6 @@ namespace Template {
         T0008:"Ja das bin ich.",
         T0009:"Mord? Es wird doch angenommen das es ein Selbstmord war.",
         T0010:"Haben Sie mich dann engagiert?",
-    
       },
 
       james:{
@@ -30,12 +29,9 @@ namespace Template {
         T0004:"Leider nein, denn es ist ja eigentlich alles klar.",
         T0005:"Mr. Grishams Tod war Selbstmord!",
         T0006:"Von mir aus schon, Ich muss allerdings Mrs. Grisham fragen.",
-        T0007:"Sie ist seit dem Tod Ihres Mannes sehr aufgelöst.",
-        T0008:"Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
-        T0009:"Leider nein, denn es ist ja eigentlich alles klar.",
-
-
+        T0007:"Sie ist seit dem Tod Ihres Mannes sehr aufgelöst."
       },
+
       violet:{
         T0000:"Guten Tag, sind Sie die Detektivin?",
         T0001:"Also sind Sie nun die Detektivin?",
@@ -43,8 +39,10 @@ namespace Template {
         T0003:"Das war KEIN Selbstmord, William würde so etwas nie tun.",
         T0004: "Nein, aber ich bin froh das es jemand getan hat.",
         T0005: "Los kommen Sie ich zeige Ihnen den Tatort."
-      }
+      },
+      
     };
+
     await ƒS.Location.show(locations.haus);
     await ƒS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
     await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomleft);
@@ -56,40 +54,33 @@ namespace Template {
     await ƒS.Speech.tell(characters.camille, text.camille.T0001);
     await ƒS.Speech.tell(characters.james, text.james.T0002);
     await ƒS.Speech.tell(characters.camille, text.camille.T0002);
-    await ƒS.Speech.tell(characters.james, text.james.T0002);
-    //await ƒS.Character.animate(characters.girl3, characters.girl3.pose.happy, fromLeftToRight());
-    //await ƒS.Character.hide(characters.girl3);
-    // ƒS.Inventory.add(items.key);
-    // await ƒS.Inventory.open();
+    await ƒS.Speech.tell(characters.james, text.james.T0003);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0003);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0004);
+    await ƒS.Speech.tell(characters.james, text.james.T0004);
+    await ƒS.Speech.tell(characters.james, text.james.T0005);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0005);
+    await ƒS.Speech.tell(characters.james, text.james.T0006);
+    await ƒS.Speech.tell(characters.james, text.james.T0007);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0006);
+    await ƒS.Character.hide(characters.james);
+    await ƒS.update(1);
 
-    let firstDialogueElementOptions = {
-      iSayNo: "Nein",
-      iSayOk: "Okay",
-      iSayYes: "Ja"
-    };
-    let firstDialogueElement = await ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass");
+    await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
+    await ƒS.update(1);
 
-    switch (firstDialogueElement) {
-      case firstDialogueElementOptions.iSayNo:
-        await ƒS.Speech.tell(characters.camille, text.camille.T0004);
-        await ƒS.Speech.tell(characters.luna, text.luna.T0003);
-        
-        break;
-      case firstDialogueElementOptions.iSayOk:
-        await ƒS.Character.show(characters.violet, characters.violet.pose.angry, ƒS.positions.bottomleft);
-        await ƒS.update(1);
-        await ƒS.Speech.tell(characters.violet, text.violet.T0000);
-        await ƒS.Speech.tell(characters.camille, text.camille.T0005);
-        await ƒS.Speech.tell(characters.violet, text.violet.T0001);
-        await ƒS.Speech.tell(characters.camille, text.camille.T0006);
-        await ƒS.Speech.tell(characters.violet, text.violet.T0002);
-        await ƒS.Speech.tell(characters.camille, text.camille.T0007);
-        break;
-      case firstDialogueElementOptions.iSayYes:
-        await ƒS.Speech.tell(characters.camille, text.camille.T0003);
-        await ƒS.Speech.tell(characters.luna, text.luna.T0003);
-        break;
-    }
+    await ƒS.Speech.tell(characters.violet, text.violet.T0000);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0007);
+    await ƒS.Speech.tell(characters.violet, text.violet.T0001);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0008);
+    await ƒS.Speech.tell(characters.violet, text.violet.T0002);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0009);
+    await ƒS.Speech.tell(characters.violet, text.violet.T0003);
+    await ƒS.Speech.tell(characters.camille, text.camille.T0010);
+    await ƒS.Speech.tell(characters.violet, text.violet.T0004);
+    await ƒS.Speech.tell(characters.violet, text.violet.T0005);
 
+
+  
   }
 }

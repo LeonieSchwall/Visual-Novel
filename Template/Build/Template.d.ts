@@ -1,4 +1,10 @@
 declare namespace Template {
+    function BadEnding(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function GoodEnding(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function Introduction(): ƒS.SceneReturn;
 }
 declare namespace Template {
@@ -165,24 +171,56 @@ declare namespace Template {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
-                happy: string;
-                upset: string;
+                normal: string;
             };
         };
         geld: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
-                happy: string;
-                upset: string;
+                normal: string;
+            };
+        };
+        buch: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+        safe: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+        knife: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+        poison: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+        labor: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
             };
         };
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
     function fromleftToCenter(): ƒS.AnimationDefinition;
     function fromlefterToLeft(): ƒS.AnimationDefinition;
+    function fromCenterToCenter(): ƒS.AnimationDefinition;
     let dataForSave: {
         points: number;
     };
@@ -196,4 +234,10 @@ declare namespace Template {
 }
 declare namespace Template {
     function Scene2(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene3(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene4(): ƒS.SceneReturn;
 }

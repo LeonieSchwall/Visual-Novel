@@ -30,9 +30,10 @@ speech {
   left: 0px;
   color: beige;
   background-color: rgba(43, 43, 43, 0.8);
-  width: 95%;
+  width: 100%;
   height: 10vh;
   padding-left: 5%;
+  box-sizing: border-box;
 }
 
 
@@ -44,13 +45,26 @@ name {
 }
 
 /* Text für Auswahlfelder */
-.firstDialogueElement{
+.auswahl{
   background-color: rgba(43, 43, 43, 0.8);
   border: none;
 
 }
+.auswahl button{
+  border: none;
+  color: beige;
+  outline: none;
+  background-color: #0000;
+  font-size: 20px;
+}
  
-  
+/* Novel Page */
+
+.novel-page{
+  background-color: rgba(43, 43, 43, 0.8);
+  border: beige;
+  color: beige;
+}
 
 /* Menu */
 
@@ -74,7 +88,7 @@ outline: none;
 cursor: default;
 background-color: #0000;
 color: beige;
-font-size: 20px;
+font-size: 15px;
 
 }
 
@@ -102,3 +116,8 @@ dialog[type="inventory"]>ul>li {
   margin-bottom: 10px;
 }
 
+/* Items im Inventar */
+
+.geld{
+  position: center;
+}
