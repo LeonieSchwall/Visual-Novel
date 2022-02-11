@@ -101,7 +101,7 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        tatort: {
+        wohnzimmer: {
             name: string;
             background: string;
         };
@@ -158,7 +158,7 @@ declare namespace Template {
                 upset: string;
             };
         };
-        maria: {
+        marie: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -223,6 +223,12 @@ declare namespace Template {
     function fromCenterToCenter(): ƒS.AnimationDefinition;
     let dataForSave: {
         points: number;
+        gesprochen: {
+            marie: boolean;
+            james: boolean;
+            violet: boolean;
+            luna: boolean;
+        };
     };
     let gameMenu: ƒS.Menu;
     function incrementSound(): void;
@@ -240,4 +246,13 @@ declare namespace Template {
 }
 declare namespace Template {
     function Scene4(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene5(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function james(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function violet(): ƒS.SceneReturn;
 }

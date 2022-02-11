@@ -100,7 +100,9 @@ namespace Template {
           await ƒS.Speech.tell(characters.camille, text.camille.T0004);
 
           await ƒS.Character.animate(characters.safe, characters.safe.pose.normal, fromCenterToCenter());
-          ƒS.Inventory.add(items.money);
+          ƒS.Inventory.add(items.safe);
+          await ƒS.Character.hide(characters.safe);
+          await ƒS.update(1);
 
           await ƒS.Speech.tell(characters.camille, text.camille.T0005);
 
@@ -132,6 +134,8 @@ namespace Template {
               await ƒS.Speech.tell(characters.camille, text.camille.T0013);
               await ƒS.Character.hide(characters.marie);
               await ƒS.update(1);
+              await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
+              await ƒS.update(1);
               await ƒS.Speech.tell(characters.camille, text.camille.T0014);
               await ƒS.Speech.tell(characters.violet, text.violet.T0006);
               await ƒS.Speech.tell(characters.camille, text.camille.T0015);
@@ -140,6 +144,10 @@ namespace Template {
               // Novel Page
               ƒS.Text.setClass("novel-page");
               ƒS.Text.print("3-5-8-1");
+              await ƒS.Character.animate(characters.schlüssel, characters.schlüssel.pose.normal, fromCenterToCenter());
+              ƒS.Inventory.add(items.key);
+              await ƒS.Character.hide(characters.schlüssel);
+              await ƒS.update(1);
               await ƒS.Speech.tell(characters.camille, text.camille.T0017);
               await ƒS.Speech.tell(characters.violet, text.violet.T0008);
               await ƒS.Speech.tell(characters.camille, text.camille.T0018);
@@ -150,8 +158,6 @@ namespace Template {
               await ƒS.Speech.tell(characters.camille, text.camille.T0021);
               
               break;
-
-        break;
           }
         case firstDialogueElementOptions.iSayNo:
           await ƒS.Speech.tell(characters.camille, text.camille.T0012);
@@ -177,11 +183,45 @@ namespace Template {
             await ƒS.Speech.tell(characters.violet, text.violet.T0010);
             await ƒS.Speech.tell(characters.camille, text.camille.T0020);
             await ƒS.Speech.tell(characters.camille, text.camille.T0021);
+
+
+            let thirdDialogueElementOptions = {
+              iSayYes: "Kriminalamt anrufen",
+              iSayNo: "Raum durchsuchen"
+            };
+            let thirdDialogueElement = await ƒS.Menu.getInput(thirdDialogueElementOptions, "auswahl");
+            switch (secondDialogueElement) {
+              case secondDialogueElementOptions.iSayYes:
+                await ƒS.Speech.tell(characters.camille, text.camille.T0006);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0007);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0008);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0009);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0010);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.T0004);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0011);
+                break;
+
+              case thirdDialogueElementOptions.iSayNo:
+                await ƒS.Speech.tell(characters.camille, text.camille.T0002);
+                await ƒS.Speech.tell(characters.violet, text.violet.T0005);
+                await ƒS.Character.hide(characters.violet);
+                await ƒS.update(1);
+      
+                await ƒS.Speech.tell(characters.camille, text.camille.T0003);
+                await ƒS.Speech.tell(characters.camille, text.camille.T0004);
+      
+                await ƒS.Character.animate(characters.safe, characters.safe.pose.normal, fromCenterToCenter());
+                ƒS.Inventory.add(items.safe);
+      
+                await ƒS.Speech.tell(characters.camille, text.camille.T0005);
+                break;  
           break;
       }
       
-     
-      await ƒS.Speech.tell(characters.camille, text.camille.T0004);
 
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
 
@@ -189,4 +229,5 @@ namespace Template {
       await ƒS.update(1);
   
     }
+}
 }

@@ -1,0 +1,126 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  overflow: hidden;
+  font-family: 'Gill Sans MT', sans-serif;
+}
+
+scene {
+    width: 1920px;
+    height: 1080px;
+    display: inline-block;
+    position: absolute;
+}
+
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Textbox */
+
+speech {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: beige;
+  background-color: rgba(43, 43, 43, 0.8);
+  width: 100%;
+  height: 10vh;
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+
+
+name {
+  font-size: 14pt;
+  display: block;
+  color: rgb(98, 113, 161);
+  margin-bottom: 10px;
+}
+
+/* Text für Auswahlfelder */
+.auswahl{
+  background-color: rgba(43, 43, 43, 0.8);
+  border: none;
+
+}
+.auswahl button{
+  border: none;
+  color: beige;
+  outline: none;
+  background-color: #0000;
+  font-size: 20px;
+}
+ 
+/* Novel Page */
+
+.novel-page{
+  background-color: rgba(43, 43, 43, 0.8);
+  border: beige;
+  color: beige;
+}
+
+/* Menu */
+
+.credits {
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(43, 43, 43, 0.8);
+  color: beige;
+}
+
+.gameMenu {
+  position: absolute;
+  background-color: rgba(43, 43, 43, 0.8);
+  border: none;
+}
+
+.gameMenu button {
+border: none;
+outline: none;
+cursor: default;
+background-color: #0000;
+color: beige;
+font-size: 15px;
+
+}
+
+/* Inventar */
+
+dialog[type="inventory"] {
+  color: rgb(203, 253, 255);
+  width: 50%;
+  border: 2px solid;
+  background-color: rgb(51, 51, 51);
+  font-family: 'KoHo', sans-serif;
+}
+
+dialog[type="inventory"]>ul {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+}
+
+dialog[type="inventory"]>ul>li {
+  width: 15vw; 
+  height: 10vw;
+  border: solid rgb(199, 199, 199);
+  border-radius: 10px;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+
+
+/* Items im Inventar */
+
+.geld{
+  position: center;
+  scale: 0.2, 0.2;
+}

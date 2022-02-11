@@ -52,7 +52,8 @@ namespace Template {
       ƒS.Text.print("34 Worlington Street");
       ƒS.Inventory.add(items.money);
       //await ƒS.Inventory.open();
-     
+      await ƒS.Character.hide(characters.geld);
+      await ƒS.update(1);
       await ƒS.Speech.tell(characters.camille, text.camille.T0004);
 
       let firstDialogueElementOptions = {

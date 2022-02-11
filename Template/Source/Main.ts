@@ -4,7 +4,7 @@ namespace Template {
 
   console.log("Template");
 
-  //define transition//
+  //define transition
   export let transitions = {
     clock: {
       duration: 1,
@@ -103,7 +103,7 @@ namespace Template {
       name: "Dienstbotenzimmer",
       background: "./Images/background/Bibliothek.png",
     },
-    tatort: {
+    wohnzimmer: {
       name: "Wohnzimmer",
       background: "./Images/background/Bibliothek.png",
     },
@@ -227,7 +227,7 @@ namespace Template {
     },
 
   };
-  //Animation//
+  //Animation
   export function fromLeftToRight(): ƒS.AnimationDefinition {
     return {
       start: { translation: ƒS.positions.bottomleft },
@@ -264,7 +264,13 @@ namespace Template {
   }
 
   export let dataForSave = {
-    points:0
+    points:0,
+    gesprochen:{
+      marie:false,
+      james:false,
+      violet:false,
+      luna:false
+    }
   };
 
   //Menü
@@ -365,12 +371,18 @@ namespace Template {
 
     //Szenen aufrufen
     let scenes: ƒS.Scenes = [
-      { scene: Introduction, name: "Introduction" },
-      { scene: Scene1, name: "Scene1" },
-      { scene: Scene2, name: "Scene2" },
-      { scene: Scene3, name: "Scene3" },
-      { scene: GoodEnding, name: "GoodEnding" },
-      { scene: BadEnding, name: "BadEnding" },
+      { id:"introduction",scene: Introduction, name: "Introduction", },
+      { id:"scene1",scene: Scene1, name: "Scene1" },
+      { id:"scene2",scene: Scene2, name: "Scene2" },
+      { id:"scene3",scene: Scene3, name: "Scene3" },
+      { id:"scene4",scene: Scene4, name: "Scene4" },
+      { id:"scene5",scene: Scene5, name: "Scene5" },
+      { id:"violet",scene: violet, name: "violet", next: "scene5" },
+      { id:"james",scene: james, name: "james", next: "scene5" },
+      { id:"luna",scene: luna, name: "luna", next: "scene5" },
+      { id:"marie",scene: marie, name: "marie", next: "scene5" },
+      { id:"GoodEnding",scene: GoodEnding, name: "GoodEnding" },
+      { id:"BadEnding",scene: BadEnding, name: "BadEnding" },
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
