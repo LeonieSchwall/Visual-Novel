@@ -5,18 +5,17 @@ namespace MurderMystery {
     
       let text = {
         violet: {
-          T0000: "Hier habe ich meinen Mann gefunden.",
+          T0000: "Hier wurde mein Mann gefunden.",
           T0001: "Da war überall Blut und es lag ein Messer neben ihm auf dem Boden.",
           T0002: "Es war schrecklich, aber William würde nie so etwas tun, dafür wäre er viel zu ängstlich.",
           T0003: "Er wollte uns nicht alleine lassen mit seiner Firma. ",
           T0004: "Er war ein Workaholic und musste alles selbst machen, damit es perfekt ist.",
 
-          T0005: "Natürlich, wenn Sie noch etwas benötigen rufen Sie nach Maria unserem Hausmädchen.",
-
-          T0006: "Natürlich, was möchten Sie wissen?",
-          T0007: "Ja den habe ich, Ich schreibe den Code für Sie auf.",
-          T0008: "Nein, den habe ich noch nie gesehen.",
-          T0009: "Machen Sie das. Brauchen Sie sonst noch etwas?",
+          T0005: "Natürlich, was möchten Sie wissen?",
+          T0006: "Das war Marie unser Hausmädchen.",
+          T0007: "Ich denke die arme hat einen schlimmen Schock davon bekommen.",
+          T0008: "Laut den Sanitätern war er schon in der Nacht gestorben und er ist am Morgen gefunden worden.",
+          T0009: "Brauchen Sie sonst noch etwas?",
           T0010: "Leider ist derzeit nur meine Tochter da, mein Sohn ist im Internat."
 
         },
@@ -38,17 +37,13 @@ namespace MurderMystery {
           T0010: "Dafür wäre ich Ihnen sehr dankbar.",
           T0011: "Wünsche ich Ihnen auch.",
 
-          T0012: "Marie, können Sie bitte Mrs. Grisham für mich suchen?",
-          T0013: "Vielen Dank.",
-
-          T0014: "Mrs. Grisham, kann ich Ihnen noch einige Fragen stellen?",
-          T0015: "Als erstes haben sie den Code für den Safe?",
-          T0016: "Vielen Dank.",
-          T0017: "Wissen Sie für was dieser Schlüssel gedacht ist?",
-          T0018: "Dann suche ich morgen nach dem passenden Schloss.",
-          T0019: "Nein, ich werde morgen noch einmal vorbeikommen und die Belegschaft befragen und am liebsten auch Ihre Familie.",
-          T0020: "Kein Problem.",
-          T0021: "Bis morgen Mrs. Grisham.",
+          T0012: "Mrs. Grisham, kann ich Ihnen noch einige Fragen stellen?",
+          T0013: "Wer hat Ihren Mann gefunden nach seinem Tod?",
+          T0014: "Das kann ich mir vorstellen.",
+          T0015: "War Ihr Mann da schon Tot?",
+          T0016: "Vielen Dank, das hat mir schon geholfen.",
+          T0017: "Nein, ich werde morgen noch einmal vorbeikommen und die Belegschaft befragen und am liebsten auch Ihre Familie.",
+          T0018: "Kein Problem.",
         },
 
         narrator: {
@@ -58,18 +53,12 @@ namespace MurderMystery {
           T0003: "Ich schicke Ihnen alles sofort zu.",
           T0004: "Einen schönen Tag noch.",
 
-        },
-
-        marie: {
-          T0000: "Natürlich, ich bringe sie zu Ihnen",
-        }
-      
+        },     
       };
   
-    
   
       await ƒS.Location.show(locations.bibliothek);
-      await ƒS.update(1);
+      await ƒS.update(transition.circle.duration, transition.circle.alpha, transition.circle.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
       await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
       await ƒS.update(1);
@@ -84,14 +73,17 @@ namespace MurderMystery {
 
       let firstDialogueElementOptions = {
         iSayYes: "Raum durchsuchen",
-        iSayNo: "Violet weiter befragen"
+        iSayNo: "Kriminalamt anrufen",
+        iSayOk: "Violet befragen"
       };
-      let firstDialogueElement = await ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
+      
+      let loopCount: number = 0;
 
-      switch (firstDialogueElement) {
-        case firstDialogueElementOptions.iSayYes:
-          await ƒS.Speech.tell(characters.camille, text.camille.T0002);
-          await ƒS.Speech.tell(characters.violet, text.violet.T0005);
+    while (loopCount < 3) {
+      let firstDialogueElement: string = await ƒS.Menu.getInput( firstDialogueElementOptions,"auswahl");
+
+      if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
+        await ƒS.Speech.tell(characters.camille, text.camille.T0002);
           await ƒS.Character.hide(characters.violet);
           await ƒS.update(1);
 
@@ -106,121 +98,46 @@ namespace MurderMystery {
 
           await ƒS.Speech.tell(characters.camille, text.camille.T0005);
 
-          let secondDialogueElementOptions = {
-            iSayYes: "Kriminalamt anrufen",
-            iSayNo: "Violet befragen"
-          };
-          let secondDialogueElement = await ƒS.Menu.getInput(secondDialogueElementOptions, "auswahl");
-          switch (secondDialogueElement) {
-            case secondDialogueElementOptions.iSayYes:
-              await ƒS.Speech.tell(characters.camille, text.camille.T0006);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0007);
-              await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0008);
-              await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0009);
-              await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0010);
-              await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
-              await ƒS.Speech.tell(characters.narrator, text.narrator.T0004);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0011);
-              break;
-      
-            case secondDialogueElementOptions.iSayNo:
-              await ƒS.Speech.tell(characters.camille, text.camille.T0012);
-              await ƒS.Character.show(characters.marie, characters.marie.pose.happy, ƒS.positions.bottomright);
-              await ƒS.update(1);
-              await ƒS.Speech.tell(characters.marie, text.marie.T0000);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0013);
-              await ƒS.Character.hide(characters.marie);
-              await ƒS.update(1);
+          delete firstDialogueElementOptions.iSayYes;
+        }
+        if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+          await ƒS.Speech.tell(characters.camille, text.camille.T0006);
+          await ƒS.Speech.tell(characters.camille, text.camille.T0007);
+          await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
+          await ƒS.Speech.tell(characters.camille, text.camille.T0008);
+          await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
+          await ƒS.Speech.tell(characters.camille, text.camille.T0009);
+          await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
+          await ƒS.Speech.tell(characters.camille, text.camille.T0010);
+          await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
+          await ƒS.Speech.tell(characters.narrator, text.narrator.T0004);
+          await ƒS.Speech.tell(characters.camille, text.camille.T0011);
+
+          delete firstDialogueElementOptions.iSayNo;
+        }
+
+     
+          if (firstDialogueElement === firstDialogueElementOptions["iSayOk"]) {  
               await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
               await ƒS.update(1);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0014);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0012);
+              await ƒS.Speech.tell(characters.violet, text.violet.T0005);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0013);
               await ƒS.Speech.tell(characters.violet, text.violet.T0006);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0015);
               await ƒS.Speech.tell(characters.violet, text.violet.T0007);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0016);
-              // Novel Page
-              ƒS.Text.setClass("novel-page");
-              ƒS.Text.print("3-5-8-1");
-              await ƒS.Character.animate(characters.schlüssel, characters.schlüssel.pose.normal, fromCenterToCenter());
-              ƒS.Inventory.add(items.key);
-              await ƒS.Character.hide(characters.schlüssel);
-              await ƒS.update(1);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0017);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0014);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0015);
               await ƒS.Speech.tell(characters.violet, text.violet.T0008);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0018);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0016);
               await ƒS.Speech.tell(characters.violet, text.violet.T0009);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0019);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0017);
               await ƒS.Speech.tell(characters.violet, text.violet.T0010);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0020);
-              await ƒS.Speech.tell(characters.camille, text.camille.T0021);
+              await ƒS.Speech.tell(characters.camille, text.camille.T0018);
               
-              break;
-          }
-        case firstDialogueElementOptions.iSayNo:
-          await ƒS.Speech.tell(characters.camille, text.camille.T0012);
-            await ƒS.Character.show(characters.marie, characters.marie.pose.happy, ƒS.positions.bottomright);
-            await ƒS.update(1);
-            await ƒS.Speech.tell(characters.marie, text.marie.T0000);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0013);
-            await ƒS.Character.hide(characters.marie);
-            await ƒS.update(1);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0014);
-            await ƒS.Speech.tell(characters.violet, text.violet.T0006);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0015);
-            await ƒS.Speech.tell(characters.violet, text.violet.T0007);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0016);
-            // Novel Page
-            ƒS.Text.setClass("novel-page");
-            ƒS.Text.print("3-5-8-1");
-            await ƒS.Speech.tell(characters.camille, text.camille.T0017);
-            await ƒS.Speech.tell(characters.violet, text.violet.T0008);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0018);
-            await ƒS.Speech.tell(characters.violet, text.violet.T0009);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0019);
-            await ƒS.Speech.tell(characters.violet, text.violet.T0010);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0020);
-            await ƒS.Speech.tell(characters.camille, text.camille.T0021);
-
-
-            let thirdDialogueElementOptions = {
-              iSayYes: "Kriminalamt anrufen",
-              iSayNo: "Raum durchsuchen"
-            };
-            let thirdDialogueElement = await ƒS.Menu.getInput(thirdDialogueElementOptions, "auswahl");
-            switch (secondDialogueElement) {
-              case secondDialogueElementOptions.iSayYes:
-                await ƒS.Speech.tell(characters.camille, text.camille.T0006);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0007);
-                await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0008);
-                await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0009);
-                await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0010);
-                await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
-                await ƒS.Speech.tell(characters.narrator, text.narrator.T0004);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0011);
-                break;
-
-              case thirdDialogueElementOptions.iSayNo:
-                await ƒS.Speech.tell(characters.camille, text.camille.T0002);
-                await ƒS.Speech.tell(characters.violet, text.violet.T0005);
-                await ƒS.Character.hide(characters.violet);
-                await ƒS.update(1);
-      
-                await ƒS.Speech.tell(characters.camille, text.camille.T0003);
-                await ƒS.Speech.tell(characters.camille, text.camille.T0004);
-      
-                await ƒS.Character.animate(characters.safe, characters.safe.pose.normal, fromCenterToCenter());
-                ƒS.Inventory.add(items.safe);
-      
-                await ƒS.Speech.tell(characters.camille, text.camille.T0005);
-                break;  
-          break;
+              delete firstDialogueElementOptions.iSayOk;
       }
+      loopCount++;
+    }
       
 
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
@@ -229,5 +146,4 @@ namespace MurderMystery {
       await ƒS.update(1);
   
     }
-}
 }

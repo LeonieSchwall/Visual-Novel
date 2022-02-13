@@ -44,7 +44,7 @@ namespace MurderMystery {
     };
 
     await ƒS.Location.show(locations.haus);
-    await ƒS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
+    await ƒS.update(transition.wipe.duration, transition.wipe.alpha, transition.wipe.edge);
     await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomleft);
     await ƒS.Character.show(characters.james, characters.james.pose.happy, ƒS.positions.bottomright);
     await ƒS.update(1);

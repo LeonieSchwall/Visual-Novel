@@ -10,7 +10,7 @@ declare namespace MurderMystery {
 declare namespace MurderMystery {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
-    let transitions: {
+    let transition: {
         clock: {
             duration: number;
             alpha: string;
@@ -22,6 +22,16 @@ declare namespace MurderMystery {
             edge: number;
         };
         wipe: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        circle: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        wipe2: {
             duration: number;
             alpha: string;
             edge: number;
@@ -216,6 +226,13 @@ declare namespace MurderMystery {
                 normal: string;
             };
         };
+        notiz: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
     function fromleftToCenter(): ƒS.AnimationDefinition;
@@ -249,6 +266,9 @@ declare namespace MurderMystery {
 }
 declare namespace MurderMystery {
     function Scene5(): ƒS.SceneReturn;
+}
+declare namespace MurderMystery {
+    function Scene6(): ƒS.SceneReturn;
 }
 declare namespace MurderMystery {
     function james(): ƒS.SceneReturn;

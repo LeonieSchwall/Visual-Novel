@@ -19,7 +19,7 @@ namespace MurderMystery {
     };
 
     await ƒS.Location.show(locations.buero);
-    await ƒS.update(1);
+    await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
     await ƒS.Character.show( characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.camille, text.camille.T0000);

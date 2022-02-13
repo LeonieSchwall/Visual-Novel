@@ -5,10 +5,10 @@ namespace MurderMystery {
   console.log("Template");
 
   //define transition
-  export let transitions = {
+  export let transition = {
     clock: {
       duration: 1,
-      alpha: "./FreeTransitions/puzzle.png",
+      alpha: "./FreeTransitions/circle.jpg",
       edge: 1,
     },
     puzzle: {
@@ -18,7 +18,17 @@ namespace MurderMystery {
     },
     wipe: {
       duration: 1,
-      alpha: "./FreeTransitions/puzzle.png",
+      alpha: "./FreeTransitions/2.png",
+      edge: 1,
+    },
+    circle: {
+      duration: 1,
+      alpha: "./FreeTransitions/1.png",
+      edge: 1,
+    },
+    wipe2: {
+      duration: 1,
+      alpha: "./FreeTransitions/3.png",
       edge: 1,
     },
   };
@@ -89,7 +99,7 @@ namespace MurderMystery {
     },
     buero: {
       name: "Büro",
-      background: "./Images/background/Bibliothek.png",
+      background: "./Images/background/Buero.png",
     },
     bibliothek: {
       name: "Bibliothek/Tatort",
@@ -97,15 +107,15 @@ namespace MurderMystery {
     },
     haus: {
       name: "Wohnsitz der Familie",
-      background: "./Images/background/Bibliothek.png",
+      background: "./Images/background/Haus.png",
     },
     kammer: {
       name: "Dienstbotenzimmer",
-      background: "./Images/background/Bibliothek.png",
+      background: "./Images/background/Kammer.png",
     },
     wohnzimmer: {
       name: "Wohnzimmer",
-      background: "./Images/background/Bibliothek.png",
+      background: "./Images/background/Wohnzimmer.jpg",
     },
   };
 
@@ -220,6 +230,13 @@ namespace MurderMystery {
     },
     labor: {
       name:"Laborbericht",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/Laborbericht.png",
+      },
+    },
+    notiz: {
+      name:"Notiz",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         normal: "./Images/Items/Laborbericht.png",
@@ -371,16 +388,17 @@ namespace MurderMystery {
 
     //Szenen aufrufen
     let scenes: ƒS.Scenes = [
-      { id:"introduction",scene: Introduction, name: "Introduction", },
-      { id:"scene1",scene: Scene1, name: "Scene1" },
-      { id:"scene2",scene: Scene2, name: "Scene2" },
-      { id:"scene3",scene: Scene3, name: "Scene3" },
-      { id:"scene4",scene: Scene4, name: "Scene4" },
-      { id:"scene5",scene: Scene5, name: "Scene5" },
-      { id:"violet",scene: violet, name: "violet", next: "scene5" },
-      { id:"james",scene: james, name: "james", next: "scene5" },
-      { id:"luna",scene: luna, name: "luna", next: "scene5" },
-      { id:"marie",scene: marie, name: "marie", next: "scene5" },
+      //{ id:"introduction",scene: Introduction, name: "Introduction", },
+      //{ id:"scene1",scene: Scene1, name: "Scene1" },
+      //{ id:"scene2",scene: Scene2, name: "Scene2" },
+      //{ id:"scene3",scene: Scene3, name: "Scene3" },
+      //{ id:"scene4",scene: Scene4, name: "Scene4" },
+      //{ id:"scene5",scene: Scene5, name: "Scene5" },
+      //{ id:"violet",scene: violet, name: "violet", next: "scene5" },
+      //{ id:"james",scene: james, name: "james", next: "scene5" },
+      //{ id:"luna",scene: luna, name: "luna", next: "scene5" },
+      //{ id:"marie",scene: marie, name: "marie", next: "scene5" },
+      { id:"scene6",scene: Scene6, name: "Scene6" },
       { id:"GoodEnding",scene: GoodEnding, name: "GoodEnding" },
       { id:"BadEnding",scene: BadEnding, name: "BadEnding" },
     ];

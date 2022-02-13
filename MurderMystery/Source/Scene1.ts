@@ -38,7 +38,7 @@ namespace MurderMystery {
     
   
       await ƒS.Location.show(locations.buero);
-      await ƒS.update(1);
+      await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
       await ƒS.update(1);
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
@@ -89,27 +89,10 @@ namespace MurderMystery {
       }
      
 
-     
-
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
 
-
-
-
-      //dataForSave.points = 50;
-      //console.log(dataForSave.points);
-      //await ƒS.Speech.tell(characters.camille, "Helloo");
-      //const t = await ƒS.Inventory.open();
-      //console.log(t)
       await ƒS.Character.hide(characters.camille);
       await ƒS.update(1);
   
-  
-      // return "";
-  
-     // if (dataForSave.points === 50) {
-       // return "Introduction";
-        // return SzenenFunktionsname();
-      //}
     }
 }

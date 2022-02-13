@@ -2,9 +2,6 @@ namespace MurderMystery {
     export async function Scene5(): ƒS.SceneReturn {
         console.log("FudgeStory Template Scene5 starting");
 
-        //   if(wen)
-
-        //     let whlen{}
         let zusprechen = {
             marie: "Marie",
             james: "James",
@@ -36,7 +33,7 @@ namespace MurderMystery {
 
 
         await ƒS.Location.show(locations.wohnzimmer);
-        await ƒS.update(1);
+        await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
         await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.camille, text.camille.T0000);
