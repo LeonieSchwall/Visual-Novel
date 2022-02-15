@@ -271,6 +271,9 @@ declare namespace MurderMystery {
     function Scene6(): ƒS.SceneReturn;
 }
 declare namespace MurderMystery {
+    function Scene7(): ƒS.SceneReturn;
+}
+declare namespace MurderMystery {
     function james(): ƒS.SceneReturn;
 }
 declare namespace MurderMystery {

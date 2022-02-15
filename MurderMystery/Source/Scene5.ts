@@ -44,18 +44,18 @@ namespace MurderMystery {
                 zusprechen,
                 "auswahl"
             );
-
+                console.log(antwort)
             if (antwort === "Violet") {
                 return "violet"
             }
 
-            if (antwort === "james") {
+            if (antwort === "James") {
                 return "james"
             }
-             if (antwort === "luna") {
+             if (antwort === "Luna") {
                 return "luna"
             }
-            if (antwort === "marie") {
+            if (antwort === "Marie") {
                 return "marie"
             }
         

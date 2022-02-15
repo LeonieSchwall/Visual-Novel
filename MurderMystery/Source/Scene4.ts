@@ -45,10 +45,8 @@ namespace MurderMystery {
         await ƒS.Character.animate(characters.knife,characters.knife.pose.normal,fromCenterToCenter());
         // Novel Page
         ƒS.Text.setClass("novel-page");
-        //ƒS.Text.addClass("text");
         ƒS.Text.print(
-          "Das Messer ist nicht die Mordwaffe, die Blutspuren sind Schweineblut."
-        );
+          "Das Messer ist nicht die Mordwaffe, die Blutspuren sind Schweineblut.");
         ƒS.Inventory.add(items.knife);
 
         await ƒS.Character.hide(characters.knife);
@@ -80,11 +78,6 @@ namespace MurderMystery {
     await ƒS.Character.hide(characters.camille);
     await ƒS.update(1);
 
-    // return "";
-
-    // if (dataForSave.points === 50) {
-    // return "Introduction";
-    // return SzenenFunktionsname();
-    //}
+   
   }
 }

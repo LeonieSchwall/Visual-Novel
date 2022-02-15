@@ -9,8 +9,8 @@ html, body {
 }
 
 scene {
-    width: 1920px;
-    height: 1080px;
+    width: 1280px;
+    height: 720px;
     display: inline-block;
     position: absolute;
 }
@@ -56,6 +56,12 @@ name {
   outline: none;
   background-color: #0000;
   font-size: 20px;
+  margin: 2px;
+  cursor:pointer
+}
+
+.auswahl button:hover{
+  background-color: grey;
 }
  
 /* Novel Page */
@@ -89,7 +95,7 @@ cursor: default;
 background-color: #0000;
 color: beige;
 font-size: 15px;
-
+cursor:pointer
 }
 
 /* Inventar */
@@ -102,18 +108,34 @@ dialog[type="inventory"] {
   font-family: 'KoHo', sans-serif;
 }
 
-dialog[type="inventory"]>ul {
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
+
+dialog[type="inventory"] amount{
+display: none;
 }
 
 dialog[type="inventory"]>ul>li {
-  width: 15vw; 
-  height: 10vw;
-  border: solid rgb(199, 199, 199);
-  border-radius: 10px;
+ 
+  height: 50px;
+  width: 100%;
   list-style-type: none;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+dialog[type="inventory"]>ul>li img {
+  width: 100%;
+  object-fit: contain;
+}
+dialog[type="inventory"] button{
+  border: none;
+  outline: none;
+  cursor: default;
+  background-color: #0000;
+  color: beige;
+  font-size: 15px;
+  border: 2px solid beige;
+  cursor:pointer
 }
 
 
@@ -123,4 +145,8 @@ dialog[type="inventory"]>ul>li {
 .geld{
   position: center;
   scale: 0.2, 0.2;
+}
+
+dialog[type="inventory"]>ul>li img, dialog[type="inventory"]>ul>li name, dialog[type="inventory"]>ul>li description{
+width: 33%;
 }

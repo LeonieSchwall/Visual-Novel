@@ -4,92 +4,43 @@ var MurderMystery;
     async function BadEnding() {
         console.log("FudgeStory Template BadEnding starting");
         let text = {
-            smith: {
-                T0000: "Guten Morgen Frau Beuford und herzlich Willkommen bei uns im Team.",
-                T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
-                T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
-                T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
-                T0004: "Allerdings, es geht um den Todesfall in der Familie Grisham.",
-                T0005: "Denke ich auch, aber wenn es um so viel Geld geht würde ich einfach mal nachforschen.",
-                T0006: "Sehr gut, ich wünsche einen erfolgreichen ersten Fall Miss Beuford."
+            marie: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: ""
             },
             camille: {
-                T0000: "Was ein schöner Tag heute ist, ich bin schon ganz aufgeregt was ich an meinem ersten Tag zu tun bekomme.",
-                T0001: "Ich habe ein Paket bekommen, was da wohl drin ist.",
-                T0002: "Oha was ist das denn für ein Haufen Geld?",
-                T0003: "Moment da ist eine Notiz dabei, was auf Ihr wohl steht?",
-                T0004: "Mh das sagt mir jetzt nicht wirklich was!",
-                T0005: "Guten Tag, hier Detektivin Beuford am Apparat.",
-                T0006: "Vielen Dank Mr. Smith.",
-                T0007: "Ja, ich habe ein Paket erhalten, in dem eine Menga Geld lag und eine seltsame Notiz.",
-                T0008: "Einen Auftrag, ich habe nur eine Adresse und sonst nichts.",
-                T0009: "Und um was es geht es?",
-                T0010: "Grisham ,ich dachte das war Selbstmord.",
-                T0011: "Alles klar Mr. Smith, ich werde mal vorbeischauen.",
-                T0012: "Na dann los zu den Grishams!",
-                T0013: "Hm nur eine Adresse, mal sehen wo das ist.",
-                T0014: "Das ist ja der Todesfall der Grisham Familie. Das war aber doch ein Selbstmord.",
-                T0015: "Schaden wird es wohl nicht mal vorbeizufahren, es scheint jemanden wichtig zu sein bei der Menge Geld."
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: "",
+                T0007: "",
+                T0008: "",
+                T0009: "",
+                T0010: "",
+                T0011: "",
+                T0012: "",
+                T0013: "",
+                T0014: "",
+                T0015: ""
             },
         };
-        await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
-        await MurderMystery.ƒS.update(1);
+        await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
+        await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
         await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
-        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.geld, MurderMystery.characters.geld.pose.normal, MurderMystery.fromCenterToCenter());
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
-        // Novel Page
-        MurderMystery.ƒS.Text.setClass("novel-page");
-        //ƒS.Text.addClass("text");
-        MurderMystery.ƒS.Text.print("34 Worlington Street");
-        MurderMystery.ƒS.Inventory.add(MurderMystery.items.money);
-        //await ƒS.Inventory.open();
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
-        let firstDialogueElementOptions = {
-            iSayYes: "Anruf annehmen",
-            iSayNo: "Anruf ignorieren"
-        };
-        let firstDialogueElement = await MurderMystery.ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
-        switch (firstDialogueElement) {
-            case firstDialogueElementOptions.iSayYes:
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0005);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0001);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0002);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0003);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0004);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0005);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0006);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
-                break;
-            case firstDialogueElementOptions.iSayNo:
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0013);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0014);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
-                break;
-        }
-        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.fromLeftToRight());
-        //dataForSave.points = 50;
-        //console.log(dataForSave.points);
-        //await ƒS.Speech.tell(characters.camille, "Helloo");
-        //const t = await ƒS.Inventory.open();
-        //console.log(t)
-        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
-        await MurderMystery.ƒS.update(1);
-        // return "";
-        // if (dataForSave.points === 50) {
-        // return "Introduction";
-        // return SzenenFunktionsname();
-        //}
     }
     MurderMystery.BadEnding = BadEnding;
 })(MurderMystery || (MurderMystery = {}));
@@ -98,92 +49,45 @@ var MurderMystery;
     async function GoodEnding() {
         console.log("FudgeStory Template GoodEnding starting");
         let text = {
-            smith: {
-                T0000: "Guten Morgen Frau Beuford und herzlich Willkommen bei uns im Team.",
-                T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
-                T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
-                T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
-                T0004: "Allerdings, es geht um den Todesfall in der Familie Grisham.",
-                T0005: "Denke ich auch, aber wenn es um so viel Geld geht würde ich einfach mal nachforschen.",
-                T0006: "Sehr gut, ich wünsche einen erfolgreichen ersten Fall Miss Beuford."
+            james: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: ""
             },
             camille: {
-                T0000: "Was ein schöner Tag heute ist, ich bin schon ganz aufgeregt was ich an meinem ersten Tag zu tun bekomme.",
-                T0001: "Ich habe ein Paket bekommen, was da wohl drin ist.",
-                T0002: "Oha was ist das denn für ein Haufen Geld?",
-                T0003: "Moment da ist eine Notiz dabei, was auf Ihr wohl steht?",
-                T0004: "Mh das sagt mir jetzt nicht wirklich was!",
-                T0005: "Guten Tag, hier Detektivin Beuford am Apparat.",
-                T0006: "Vielen Dank Mr. Smith.",
-                T0007: "Ja, ich habe ein Paket erhalten, in dem eine Menga Geld lag und eine seltsame Notiz.",
-                T0008: "Einen Auftrag, ich habe nur eine Adresse und sonst nichts.",
-                T0009: "Und um was es geht es?",
-                T0010: "Grisham ,ich dachte das war Selbstmord.",
-                T0011: "Alles klar Mr. Smith, ich werde mal vorbeischauen.",
-                T0012: "Na dann los zu den Grishams!",
-                T0013: "Hm nur eine Adresse, mal sehen wo das ist.",
-                T0014: "Das ist ja der Todesfall der Grisham Familie. Das war aber doch ein Selbstmord.",
-                T0015: "Schaden wird es wohl nicht mal vorbeizufahren, es scheint jemanden wichtig zu sein bei der Menge Geld."
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: "",
+                T0006: "",
+                T0007: "",
+                T0008: "",
+                T0009: "",
+                T0010: "",
+                T0011: "",
+                T0012: "",
+                T0013: "",
+                T0014: "",
+                T0015: ""
             },
         };
-        await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
-        await MurderMystery.ƒS.update(1);
+        await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
+        await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
         await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
-        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.geld, MurderMystery.characters.geld.pose.normal, MurderMystery.fromCenterToCenter());
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
         // Novel Page
         MurderMystery.ƒS.Text.setClass("novel-page");
-        //ƒS.Text.addClass("text");
-        MurderMystery.ƒS.Text.print("34 Worlington Street");
-        MurderMystery.ƒS.Inventory.add(MurderMystery.items.money);
-        //await ƒS.Inventory.open();
-        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
-        let firstDialogueElementOptions = {
-            iSayYes: "Anruf annehmen",
-            iSayNo: "Anruf ignorieren"
-        };
-        let firstDialogueElement = await MurderMystery.ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
-        switch (firstDialogueElement) {
-            case firstDialogueElementOptions.iSayYes:
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0005);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0001);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0002);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0003);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0004);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0005);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0006);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
-                break;
-            case firstDialogueElementOptions.iSayNo:
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0013);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0014);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
-                break;
-        }
-        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.fromLeftToRight());
-        //dataForSave.points = 50;
-        //console.log(dataForSave.points);
-        //await ƒS.Speech.tell(characters.camille, "Helloo");
-        //const t = await ƒS.Inventory.open();
-        //console.log(t)
-        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
-        await MurderMystery.ƒS.update(1);
-        // return "";
-        // if (dataForSave.points === 50) {
-        // return "Introduction";
-        // return SzenenFunktionsname();
-        //}
+        MurderMystery.ƒS.Text.print("Glückwunsch!");
     }
     MurderMystery.GoodEnding = GoodEnding;
 })(MurderMystery || (MurderMystery = {}));
@@ -239,12 +143,12 @@ var MurderMystery;
         },
         wipe: {
             duration: 1,
-            alpha: "./FreeTransitions/2.png",
+            alpha: "./FreeTransitions/2.jpg",
             edge: 1,
         },
         circle: {
             duration: 1,
-            alpha: "./FreeTransitions/1.png",
+            alpha: "./FreeTransitions/1.jpg",
             edge: 1,
         },
         wipe2: {
@@ -291,7 +195,7 @@ var MurderMystery;
         paper: {
             name: "Notizzettel",
             description: "Was soll das Kauderwelsch denn bedeuten?",
-            image: "./Images/Items/Gift.png",
+            image: "./Images/Items/Notiz.png",
         },
         poison: {
             name: "Gift",
@@ -313,7 +217,7 @@ var MurderMystery;
     MurderMystery.locations = {
         Startscreen: {
             name: "Startscreen",
-            background: "./Images/background/Bibliothek.jpg",
+            background: "./Images/background/Startscreen.png",
         },
         buero: {
             name: "Büro",
@@ -333,7 +237,7 @@ var MurderMystery;
         },
         wohnzimmer: {
             name: "Wohnzimmer",
-            background: "./Images/background/Wohnzimmer.jpg",
+            background: "./Images/background/Wohnzimmer.png",
         },
     };
     //Charakter benennen
@@ -452,7 +356,7 @@ var MurderMystery;
             name: "Notiz",
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                normal: "./Images/Items/Laborbericht.png",
+                normal: "./Images/Items/Notiz.png",
             },
         },
     };
@@ -486,8 +390,8 @@ var MurderMystery;
     MurderMystery.fromlefterToLeft = fromlefterToLeft;
     function fromCenterToCenter() {
         return {
-            start: { translation: MurderMystery.ƒS.positions.center, scaling: new MurderMystery.ƒS.Position(0.2, 0.2) },
-            end: { translation: MurderMystery.ƒS.positions.center, scaling: new MurderMystery.ƒS.Position(0.2, 0.2) },
+            start: { translation: MurderMystery.ƒS.positions.center, scaling: new MurderMystery.ƒS.Position(0.1, 0.1) },
+            end: { translation: MurderMystery.ƒS.positions.center, scaling: new MurderMystery.ƒS.Position(0.1, 0.1) },
             duration: 2,
             playmode: MurderMystery.ƒS.ANIMATION_PLAYMODE.PLAYONCE,
         };
@@ -532,7 +436,9 @@ var MurderMystery;
             "<br/>" +
             "Von Leonie Schwall" +
             "<br/>" +
-            "Die Elemente wurden selbst gezeichnet." +
+            "Die Hintergründe, Charaktere und Items wurden selbst gezeichnet." +
+            "<br/>" +
+            "Die Soundelemente wurden mit einer Envato Lizenz lizensiert heruntergeladen:" +
             "<br/>");
     }
     MurderMystery.showCredits = showCredits;
@@ -552,7 +458,17 @@ var MurderMystery;
                 decrementSound();
                 break;
             case inGameMenu.inventar:
-                await MurderMystery.ƒS.Inventory.open();
+                const selectedItems = await MurderMystery.ƒS.Inventory.open();
+                if (selectedItems && selectedItems.length > 0) {
+                    selectedItems.forEach((s) => {
+                        Object.keys(MurderMystery.items).forEach((i) => {
+                            const item = MurderMystery.items[i];
+                            if (item.name === s) {
+                                MurderMystery.ƒS.Inventory.add(item);
+                            }
+                        });
+                    });
+                }
                 break;
             case inGameMenu.credits:
                 showCredits();
@@ -594,17 +510,18 @@ var MurderMystery;
         MurderMystery.gameMenu = MurderMystery.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
         //Szenen aufrufen
         let scenes = [
-            //{ id:"introduction",scene: Introduction, name: "Introduction", },
-            //{ id:"scene1",scene: Scene1, name: "Scene1" },
-            //{ id:"scene2",scene: Scene2, name: "Scene2" },
-            //{ id:"scene3",scene: Scene3, name: "Scene3" },
-            //{ id:"scene4",scene: Scene4, name: "Scene4" },
-            //{ id:"scene5",scene: Scene5, name: "Scene5" },
-            //{ id:"violet",scene: violet, name: "violet", next: "scene5" },
-            //{ id:"james",scene: james, name: "james", next: "scene5" },
-            //{ id:"luna",scene: luna, name: "luna", next: "scene5" },
-            //{ id:"marie",scene: marie, name: "marie", next: "scene5" },
+            { id: "introduction", scene: MurderMystery.Introduction, name: "Introduction", },
+            { id: "scene1", scene: MurderMystery.Scene1, name: "Scene1" },
+            { id: "scene2", scene: MurderMystery.Scene2, name: "Scene2" },
+            { id: "scene3", scene: MurderMystery.Scene3, name: "Scene3" },
+            { id: "scene4", scene: MurderMystery.Scene4, name: "Scene4" },
+            { id: "scene5", scene: MurderMystery.Scene5, name: "Scene5" },
+            { id: "violet", scene: MurderMystery.violet, name: "violet", next: "scene5" },
+            { id: "james", scene: MurderMystery.james, name: "james", next: "scene5" },
+            { id: "luna", scene: MurderMystery.luna, name: "luna", next: "scene5" },
+            { id: "marie", scene: MurderMystery.marie, name: "marie", next: "scene5" },
             { id: "scene6", scene: MurderMystery.Scene6, name: "Scene6" },
+            { id: "scene7", scene: MurderMystery.Scene7, name: "Scene7" },
             { id: "GoodEnding", scene: MurderMystery.GoodEnding, name: "GoodEnding" },
             { id: "BadEnding", scene: MurderMystery.BadEnding, name: "BadEnding" },
         ];
@@ -621,7 +538,7 @@ var MurderMystery;
         console.log("FudgeStory Template Scene1 starting");
         let text = {
             smith: {
-                T0000: "Guten Morgen Frau Beuford und herzlich Willkommen bei uns im Team.",
+                T0000: "Guten Morgen Frau Beuford und Herzlich Willkommen bei uns im Team.",
                 T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
                 T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
                 T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
@@ -940,7 +857,6 @@ var MurderMystery;
                 await MurderMystery.ƒS.Character.animate(MurderMystery.characters.knife, MurderMystery.characters.knife.pose.normal, MurderMystery.fromCenterToCenter());
                 // Novel Page
                 MurderMystery.ƒS.Text.setClass("novel-page");
-                //ƒS.Text.addClass("text");
                 MurderMystery.ƒS.Text.print("Das Messer ist nicht die Mordwaffe, die Blutspuren sind Schweineblut.");
                 MurderMystery.ƒS.Inventory.add(MurderMystery.items.knife);
                 await MurderMystery.ƒS.Character.hide(MurderMystery.characters.knife);
@@ -967,11 +883,6 @@ var MurderMystery;
         await MurderMystery.ƒS.Character.animate(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.fromLeftToRight());
         await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
         await MurderMystery.ƒS.update(1);
-        // return "";
-        // if (dataForSave.points === 50) {
-        // return "Introduction";
-        // return SzenenFunktionsname();
-        //}
     }
     MurderMystery.Scene4 = Scene4;
 })(MurderMystery || (MurderMystery = {}));
@@ -1009,16 +920,17 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         if (Object.keys(zusprechen).length > 0) {
             let antwort = await MurderMystery.ƒS.Menu.getInput(zusprechen, "auswahl");
+            console.log(antwort);
             if (antwort === "Violet") {
                 return "violet";
             }
-            if (antwort === "james") {
+            if (antwort === "James") {
                 return "james";
             }
-            if (antwort === "luna") {
+            if (antwort === "Luna") {
                 return "luna";
             }
-            if (antwort === "marie") {
+            if (antwort === "Marie") {
                 return "marie";
             }
         }
@@ -1035,7 +947,24 @@ var MurderMystery;
         let text = {
             camille: {
                 T0000: "Vielen Dank für Ihre Mitarbeit.",
-                T0001: "Ich würde mich nun gerne noch einmal in den Räumen umsehen."
+                T0001: "Ich würde mich nun gerne noch einmal in den Räumen umsehen.",
+                T0002: "Hoffentlich finde ich hier einen Hinweis, der es eindeutig macht wer der Täter ist.",
+                T0003: "Tatsächlich, hinter den Büchern im Regal sieht es aus als wären hier etwas versteckt.",
+                T0004: "Ist das etwa Gift?",
+                T0005: "Ich schaue mal im Internet nach was das sein könnte.",
+                T0006: "Das muss ein eine flüssige Version davon sein ",
+                T0007: "Das würde ja bedeuten Mr. Grisham wurde vergiftet.",
+                T0008: "Aber warum hat er sich dann noch die Pulsadern aufgeschnitten?",
+                T0009: "Mal sehen ob die beiden Angestellten etwas in Ihren Räumen haben das mir weiterhilft.",
+                T0010: "Hm hier liegt nichts auffälliges herum.",
+                T0011: "Nur ein Tagebuch, da sollte ich schon mal hereinsehen, hoffentlich steht da nichts allzu privates drin.",
+                T0012: "Das ist ja gar nicht von Marie, aber wem gehört es?",
+                T0013: "Oh hier ist ein interessanter Eintrag.",
+                T0014: "Das bedeutet James Taylor ist eigentlich Mr. Grishams Sohn.",
+                T0015: "Mr. Grisham wusste das er einen Sohn hatte, aber nicht wer es war.",
+                T0016: "James wusste das er sein Vater war.",
+                T0017: "War er wütend deswegen, wollte er vielleicht sogar sein Erbe haben?",
+                T0018: "Mh schade, hier im Wohnzimmer ist nichts ungewöhnliches zu finden.",
             },
         };
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
@@ -1055,23 +984,146 @@ var MurderMystery;
             if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
                 await MurderMystery.ƒS.Location.show(MurderMystery.locations.bibliothek);
                 await MurderMystery.ƒS.update(MurderMystery.transition.circle.duration, MurderMystery.transition.circle.alpha, MurderMystery.transition.circle.edge);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
+                await MurderMystery.ƒS.Character.animate(MurderMystery.characters.poison, MurderMystery.characters.poison.pose.normal, MurderMystery.fromCenterToCenter());
+                MurderMystery.ƒS.Inventory.add(MurderMystery.items.poison);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0005);
+                await MurderMystery.ƒS.Character.hide(MurderMystery.characters.poison);
+                await MurderMystery.ƒS.update(1);
+                // Novel Page
+                MurderMystery.ƒS.Text.setClass("novel-page");
+                MurderMystery.ƒS.Text.print("Die lila Pflanze Wolfswurz ist hochgradig giftig und löst innerhalb von 15 Minuten Herzrythmusstörungen aus.");
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
                 delete firstDialogueElementOptions.iSayYes;
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
                 await MurderMystery.ƒS.Location.show(MurderMystery.locations.kammer);
                 await MurderMystery.ƒS.update(MurderMystery.transition.wipe2.duration, MurderMystery.transition.wipe2.alpha, MurderMystery.transition.wipe2.edge);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
+                await MurderMystery.ƒS.Character.animate(MurderMystery.characters.buch, MurderMystery.characters.buch.pose.normal, MurderMystery.fromCenterToCenter());
+                MurderMystery.ƒS.Inventory.add(MurderMystery.items.book);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0013);
+                await MurderMystery.ƒS.Character.hide(MurderMystery.characters.buch);
+                await MurderMystery.ƒS.update(1);
+                MurderMystery.ƒS.Text.setClass("novel-page");
+                MurderMystery.ƒS.Text.print("Es ist so schade das Grisham James nicht als seinen Sohn annehmen möchte, so muss der arme Junge ohne Vater aufwachsen.");
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0014);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0016);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0017);
                 delete firstDialogueElementOptions.iSayNo;
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayOk"]) {
                 await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
                 await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0018);
                 delete firstDialogueElementOptions.iSayOk;
             }
             loopCount++;
         }
     }
     MurderMystery.Scene6 = Scene6;
+})(MurderMystery || (MurderMystery = {}));
+var MurderMystery;
+(function (MurderMystery) {
+    async function Scene7() {
+        console.log("FudgeStory Template Scene7 starting");
+        let text = {
+            smith: {
+                T0000: "Guten Tag Ms. Beuford, haben Sie den Fall mittlerweile gelöst?",
+                T0001: "Wir können den Fall gerne durchegehen, vielleicht kommt Ihnen dann eine Idee.",
+                T0002: "Wie widersprechen sich die beiden?",
+                T0003: "Seltsam, aber vielleicht war sie ja diejenige mit dem Messer.",
+                T0004: "Haben sie ein Motiv von Ihr?",
+                T0005: "Das ist allerdings ein sehr schwaches Motiv.",
+                T0006: "Bleibt noch der Verwalter. Hätte er ein Motiv?",
+                T0007: "Hm, aber das ist noch kein Grund für einen Mord. Vielleicht hatten sie einen Streit?",
+                T0008: "Dann vielleicht einfach wegen dem Erbe? Oder es hat etwas mit der Mutter zu tun.",
+                T0009: "Wie meinen Sie das?",
+                T0010: "Ja aber das ist ja noch kein Motiv für Luna.",
+                T0011: "Wäre möglich, Sie müssen wissen ob Sie weiter ermitteln wollen oder den Fall als abgeschlossen sehen und jemanden verdächtigen."
+            },
+            camille: {
+                T0000: "Hallo Mr. Smith.",
+                T0001: "Leider nicht, ich habe einige Motive und Indizien gesammelt, kann Sie aber nicht zusammensetzen.",
+                T0002: "Sehr gerne, ich zähle auf was ich gefunden habe.",
+                T0003: "Mr. Grisham wurde morgens von Marie dem Hausmädchen gefunden.",
+                T0004: "Wann genau, da wiedersprechen sich Marie und James der Verwalter.",
+                T0005: "Marie sagt Sie hätte Mr. Grisham gegen acht gefunden und dann geschrien.",
+                T0006: "James Taylor behauptet allerdings sie zweimal schreien gehört zu haben, einmal um sechs und dann drei Stunden später als sie ihn geholt hat.",
+                T0007: "Was sie in der Zeit gemacht hat weiß ich nicht genau.",
+                T0008: "Das könnte sein, aber warum sollte sie das postmortem tun?",
+                T0009: "Naja sie konnte Mr. Grisham wohl nicht sonderlich leiden, da er streng war.",
+                T0010: "Genau, Die Tochter Luna war zum Todeszeitpunkt zwar Zuhause, allerdings hat sie kein Motiv und wirkt auch nicht wie ein Täter.",
+                T0011: "Sie würde ich ausschließen, genauso wie Mrs. Grisham, die erst nach dem Todeszeitpunkt zurückkam.",
+                T0012: "Ich vermute er ist der uneheliche Sohn von Mr. Grisham und hegte daher einen Groll.",
+                T0013: "Mr. Grisham wusste von einem Sohn allerdings bezweifle ich das er wusste das James sein Sohn ist.",
+                T0014: "Das könnte sein, allerdings kam ja heraus das Mr. Grisham vergiftet wurde und das ist keinen Tat im Affekt.",
+                T0015: "Ja über die weiß ich nichts.",
+                T0016: "Denken Sie es könnte einen Tat aus Eifersucht sein?",
+                T0017: "Marie ist wohl in James verliebt, das behauptet Luna. Was wenn Mr. Grisham ebenfalls in Marie verliebt war.",
+                T0018: "Nein aber für James, der vielleicht nicht will das noch ein uneheliches Kind leiden muss.",
+                T0019: "Ich habe zwei Verdächtige, aber welcher ist der Mörder?",
+            },
+        };
+        await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
+        await MurderMystery.ƒS.update(MurderMystery.transition.puzzle.duration, MurderMystery.transition.puzzle.alpha, MurderMystery.transition.puzzle.edge);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.update(1);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0001);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0002);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0005);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0003);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0004);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0005);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0006);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0013);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0007);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0014);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0008);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0016);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0009);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0017);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0010);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0018);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0011);
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0019);
+        let firstDialogueElementOptions = {
+            iSayYes: "Marie",
+            iSayNo: "James"
+        };
+        let firstDialogueElement = await MurderMystery.ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
+        switch (firstDialogueElement) {
+            case firstDialogueElementOptions.iSayYes:
+                return "BadEnding";
+            // break;
+            case firstDialogueElementOptions.iSayNo:
+                // break;
+                return "GoodEnding";
+        }
+    }
+    MurderMystery.Scene7 = Scene7;
 })(MurderMystery || (MurderMystery = {}));
 var MurderMystery;
 (function (MurderMystery) {

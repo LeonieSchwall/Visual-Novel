@@ -18,12 +18,12 @@ namespace MurderMystery {
     },
     wipe: {
       duration: 1,
-      alpha: "./FreeTransitions/2.png",
+      alpha: "./FreeTransitions/2.jpg",
       edge: 1,
     },
     circle: {
       duration: 1,
-      alpha: "./FreeTransitions/1.png",
+      alpha: "./FreeTransitions/1.jpg",
       edge: 1,
     },
     wipe2: {
@@ -72,7 +72,7 @@ namespace MurderMystery {
     paper: {
       name: "Notizzettel",
       description: "Was soll das Kauderwelsch denn bedeuten?",
-      image: "./Images/Items/Gift.png",
+      image: "./Images/Items/Notiz.png",
     },
     poison: {
       name: "Gift",
@@ -95,7 +95,7 @@ namespace MurderMystery {
   export let locations = {
     Startscreen: {
       name: "Startscreen",
-      background: "./Images/background/Bibliothek.jpg",
+      background: "./Images/background/Startscreen.png",
     },
     buero: {
       name: "Büro",
@@ -115,7 +115,7 @@ namespace MurderMystery {
     },
     wohnzimmer: {
       name: "Wohnzimmer",
-      background: "./Images/background/Wohnzimmer.jpg",
+      background: "./Images/background/Wohnzimmer.png",
     },
   };
 
@@ -239,7 +239,7 @@ namespace MurderMystery {
       name:"Notiz",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        normal: "./Images/Items/Laborbericht.png",
+        normal: "./Images/Items/Notiz.png",
       },
     },
 
@@ -273,8 +273,8 @@ namespace MurderMystery {
   }
   export function fromCenterToCenter(): ƒS.AnimationDefinition {
     return {
-      start: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.2, 0.2) },
-      end: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.2, 0.2) },
+      start: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.1, 0.1) },
+      end: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.1, 0.1) },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
     };
@@ -323,7 +323,9 @@ namespace MurderMystery {
         "<br/>" +
         "Von Leonie Schwall" +
         "<br/>" +
-        "Die Elemente wurden selbst gezeichnet." +
+        "Die Hintergründe, Charaktere und Items wurden selbst gezeichnet." +
+        "<br/>" +
+        "Die Soundelemente wurden mit einer Envato Lizenz lizensiert heruntergeladen:" +
         "<br/>"
     );
   }
@@ -344,7 +346,17 @@ namespace MurderMystery {
         decrementSound();
         break;
       case inGameMenu.inventar:
-        await ƒS.Inventory.open();
+        const selectedItems:string[] = await ƒS.Inventory.open();
+        if(selectedItems && selectedItems.length > 0){
+          selectedItems.forEach((s)=>{
+            Object.keys(items).forEach((i)=>{
+              const item = items[i];
+              if(item.name === s){
+                ƒS.Inventory.add(item);
+              }
+            })
+          })
+        }
         break;
       case inGameMenu.credits:
         showCredits();
@@ -388,17 +400,18 @@ namespace MurderMystery {
 
     //Szenen aufrufen
     let scenes: ƒS.Scenes = [
-      //{ id:"introduction",scene: Introduction, name: "Introduction", },
-      //{ id:"scene1",scene: Scene1, name: "Scene1" },
-      //{ id:"scene2",scene: Scene2, name: "Scene2" },
-      //{ id:"scene3",scene: Scene3, name: "Scene3" },
-      //{ id:"scene4",scene: Scene4, name: "Scene4" },
-      //{ id:"scene5",scene: Scene5, name: "Scene5" },
-      //{ id:"violet",scene: violet, name: "violet", next: "scene5" },
-      //{ id:"james",scene: james, name: "james", next: "scene5" },
-      //{ id:"luna",scene: luna, name: "luna", next: "scene5" },
-      //{ id:"marie",scene: marie, name: "marie", next: "scene5" },
+      { id:"introduction",scene: Introduction, name: "Introduction", },
+      { id:"scene1",scene: Scene1, name: "Scene1" },
+      { id:"scene2",scene: Scene2, name: "Scene2" },
+      { id:"scene3",scene: Scene3, name: "Scene3" },
+      { id:"scene4",scene: Scene4, name: "Scene4" },
+      { id:"scene5",scene: Scene5, name: "Scene5" },
+      { id:"violet",scene: violet, name: "violet", next: "scene5" },
+      { id:"james",scene: james, name: "james", next: "scene5" },
+      { id:"luna",scene: luna, name: "luna", next: "scene5" },
+      { id:"marie",scene: marie, name: "marie", next: "scene5" },
       { id:"scene6",scene: Scene6, name: "Scene6" },
+      { id:"scene7",scene: Scene7, name: "Scene7" },
       { id:"GoodEnding",scene: GoodEnding, name: "GoodEnding" },
       { id:"BadEnding",scene: BadEnding, name: "BadEnding" },
     ];

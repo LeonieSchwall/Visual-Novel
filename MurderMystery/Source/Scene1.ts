@@ -5,7 +5,7 @@ namespace MurderMystery {
     
       let text = {
         smith: {
-          T0000: "Guten Morgen Frau Beuford und herzlich Willkommen bei uns im Team.",
+          T0000: "Guten Morgen Frau Beuford und Herzlich Willkommen bei uns im Team.",
           T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
           T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
           T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
