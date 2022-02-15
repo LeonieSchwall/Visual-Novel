@@ -10,7 +10,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 | Nr | Bezeichnung           | Inhalt                                                                                                                                                                                                                                                                         |
 |---:|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    | Titel                 | Murder Mystery
+|    | Titel                 | Murder Mystery  
 |    | Name                  | Leonie Schwall
 |    | Matrikelnummer        | 262476
 |  1 | Konzeption     | Die Story der Visual Novel wird in einer kurzen Inhaltsangabe beschrieben und der Konzeption beigefügt. In dieser sind jegliche Diagramme, Scribbles sowie entweder ein Storyboard, ein Drehbuch oder Ähnliches enthalten.                                                                                                                            |
