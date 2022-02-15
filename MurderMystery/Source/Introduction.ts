@@ -13,7 +13,7 @@ namespace MurderMystery {
     };
 
 
-    ƒS.Sound.fade(sound.backgroundTheme, 0.07, 0.1, true);
+    ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true);
     await ƒS.Location.show(locations.Startscreen);
     await ƒS.update(2);
     await ƒS.Speech.tell(characters.narrator, "Willkommen zur Visual Novel 'Murder Mystery'.");
@@ -29,7 +29,7 @@ namespace MurderMystery {
     await ƒS.Speech.tell(characters.narrator, data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem Fall beginnen.", true);
     ƒS.Character.hideAll();
     ƒS.Speech.clear();
-    ƒS.Sound.fade(sound.backgroundTheme, 0, 0.2, true);
+    ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
     await ƒS.update(2);
   }
 

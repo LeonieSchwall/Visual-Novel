@@ -56,6 +56,7 @@ namespace MurderMystery {
           // await delay();
       }
       if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+        ƒS.Sound.play(sound.paper2, 0.5, false);
         await ƒS.Character.animate(characters.labor,characters.labor.pose.normal,fromCenterToCenter());
         // Novel Page
         ƒS.Text.setClass("novel-page");

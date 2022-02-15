@@ -103,7 +103,7 @@ var MurderMystery;
                 T0003: "Als erstes braucht Sie allerdings einen Vornamen. ",
             },
         };
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundTheme, 0.07, 0.1, true);
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.Startscreen);
         await MurderMystery.ƒS.update(2);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, "Willkommen zur Visual Novel 'Murder Mystery'.");
@@ -119,7 +119,7 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, MurderMystery.data.protagonist.name + "? Super, dann kann Detektivin Beuford ja mit ihrem Fall beginnen.", true);
         MurderMystery.ƒS.Character.hideAll();
         MurderMystery.ƒS.Speech.clear();
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundTheme, 0, 0.2, true);
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0, 0.2, true);
         await MurderMystery.ƒS.update(2);
     }
     MurderMystery.Introduction = Introduction;
@@ -158,12 +158,20 @@ var MurderMystery;
         },
     };
     MurderMystery.sound = {
-        //music
-        backgroundTheme: "./Audio/Fireplace.wav",
+        //music oke irgendwie hat es mir mega was zerschossen vorhin beim pullen, lass 
+        backgroundfire: "./Audio/Fireplace.wav",
+        backgroundBibliothek: "./Audio/backgroundBibliothek.wav/",
+        backgroundBuero: "./Audio/backgroundBuero.wav/",
+        backgroundEnde: "./Audio/backgroundEnde.wav/",
+        backgroundHaus: "./Audio/backgroundHaus.wav/",
+        backgroundKammer: "./Audio/backgroundKammer.wav/",
+        backgroundWohnzimmer: "./Audio/backgroundWohnzimmer.wav/",
         //sound
         clock: "./Audio/Old Clock.wav",
+        paper: "./Audio/paper1.wav",
+        paper2: "./Audio/paper2.wav",
         safe: "./Audio/Safe1.wav",
-        safe2: "./Audio/Safe2.wav",
+        magie: "./Audio/magie.wav",
     };
     //Items
     MurderMystery.items = {
@@ -217,7 +225,7 @@ var MurderMystery;
     MurderMystery.locations = {
         Startscreen: {
             name: "Startscreen",
-            background: "./Images/background/Startscreen.png",
+            background: "./Images/background/Startscreen.png", //uno fehlero h
         },
         buero: {
             name: "Büro",
@@ -866,6 +874,7 @@ var MurderMystery;
                 // await delay();
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+                MurderMystery.ƒS.Sound.play(MurderMystery.sound.paper2, 0.5, false);
                 await MurderMystery.ƒS.Character.animate(MurderMystery.characters.labor, MurderMystery.characters.labor.pose.normal, MurderMystery.fromCenterToCenter());
                 // Novel Page
                 MurderMystery.ƒS.Text.setClass("novel-page");

@@ -38,10 +38,18 @@ declare namespace MurderMystery {
         };
     };
     let sound: {
-        backgroundTheme: string;
+        backgroundfire: string;
+        backgroundBibliothek: string;
+        backgroundBuero: string;
+        backgroundEnde: string;
+        backgroundHaus: string;
+        backgroundKammer: string;
+        backgroundWohnzimmer: string;
         clock: string;
+        paper: string;
+        paper2: string;
         safe: string;
-        safe2: string;
+        magie: string;
     };
     let items: {
         key: {
