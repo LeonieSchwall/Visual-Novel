@@ -13,7 +13,7 @@ namespace MurderMystery {
     };
 
 
-    ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true);
+    ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.Startscreen);
     await ƒS.update(2);
     await ƒS.Speech.tell(characters.narrator, "Willkommen zur Visual Novel 'Murder Mystery'.");

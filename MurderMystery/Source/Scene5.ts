@@ -31,7 +31,7 @@ namespace MurderMystery {
 
         };
 
-
+        ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
         await ƒS.Location.show(locations.wohnzimmer);
         await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
         await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -63,6 +63,6 @@ namespace MurderMystery {
         else {
             return "scene6"
         }
-        
+        ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);   
     }
 }

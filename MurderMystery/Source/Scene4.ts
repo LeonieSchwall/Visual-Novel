@@ -17,7 +17,7 @@ namespace MurderMystery {
         T0002: "Machen Sie das, es könnte noch sehr interessant werden.",
       },
     };
-
+    ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.buero);
     await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
     await ƒS.Character.show( characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -42,6 +42,7 @@ namespace MurderMystery {
       let firstDialogueElement: string = await ƒS.Menu.getInput( firstDialogueElementOptions,"auswahl");
 
       if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
+        ƒS.Sound.play(sound.knife, 0.5, false); 
         await ƒS.Character.animate(characters.knife,characters.knife.pose.normal,fromCenterToCenter());
         // Novel Page
         ƒS.Text.setClass("novel-page");
@@ -56,7 +57,7 @@ namespace MurderMystery {
           // await delay();
       }
       if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
-        ƒS.Sound.play(sound.paper2, 0.5, false);
+        ƒS.Sound.play(sound.paper2, 0.5, false); 
         await ƒS.Character.animate(characters.labor,characters.labor.pose.normal,fromCenterToCenter());
         // Novel Page
         ƒS.Text.setClass("novel-page");
@@ -77,6 +78,7 @@ namespace MurderMystery {
 
     await ƒS.Character.animate(characters.camille,characters.camille.pose.happy,fromLeftToRight());
     await ƒS.Character.hide(characters.camille);
+    ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
     await ƒS.update(1);
 
    

@@ -56,7 +56,7 @@ namespace MurderMystery {
         },     
       };
   
-  
+      ƒS.Sound.fade(sound.backgroundBibliothek, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.bibliothek);
       await ƒS.update(transition.circle.duration, transition.circle.alpha, transition.circle.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -101,6 +101,7 @@ namespace MurderMystery {
           delete firstDialogueElementOptions.iSayYes;
         }
         if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+          ƒS.Sound.play(sound.anruf, 0.5, false); 
           await ƒS.Speech.tell(characters.camille, text.camille.T0006);
           await ƒS.Speech.tell(characters.camille, text.camille.T0007);
           await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
@@ -143,6 +144,7 @@ namespace MurderMystery {
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
 
       await ƒS.Character.hide(characters.camille);
+      ƒS.Sound.fade(sound.backgroundBibliothek, 0, 0.2, true);
       await ƒS.update(1);
   
     }

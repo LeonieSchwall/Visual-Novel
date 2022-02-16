@@ -32,6 +32,7 @@ namespace MurderMystery {
         },
 
     };
+    ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.wohnzimmer);
     await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
     await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -51,12 +52,14 @@ namespace MurderMystery {
       let firstDialogueElement: string = await ƒS.Menu.getInput( firstDialogueElementOptions,"auswahl");
 
       if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
+        ƒS.Sound.fade(sound.backgroundBibliothek, 0.07, 0.1, true); 
         await ƒS.Location.show(locations.bibliothek);
         await ƒS.update(transition.circle.duration, transition.circle.alpha, transition.circle.edge);
         await ƒS.Speech.tell(characters.camille, text.camille.T0002);
         await ƒS.Speech.tell(characters.camille, text.camille.T0003);
 
         await ƒS.Character.animate(characters.poison, characters.poison.pose.normal, fromCenterToCenter());
+        ƒS.Sound.play(sound.magie, 0.5, false);
         ƒS.Inventory.add(items.poison);
         await ƒS.Speech.tell(characters.camille, text.camille.T0004);
         await ƒS.Speech.tell(characters.camille, text.camille.T0005);
@@ -72,6 +75,7 @@ namespace MurderMystery {
           delete firstDialogueElementOptions.iSayYes;
         }
         if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+            ƒS.Sound.fade(sound.backgroundKammer, 0.07, 0.1, true); 
             await ƒS.Location.show(locations.kammer);
             await ƒS.update(transition.wipe2.duration, transition.wipe2.alpha, transition.wipe2.edge);
 
@@ -79,7 +83,9 @@ namespace MurderMystery {
 
             await ƒS.Speech.tell(characters.camille, text.camille.T0010);
             await ƒS.Speech.tell(characters.camille, text.camille.T0011);
+            ƒS.Sound.play(sound.paper2, 0.5, false); 
             await ƒS.Character.animate(characters.buch, characters.buch.pose.normal, fromCenterToCenter());
+            ƒS.Sound.play(sound.paper, 0.5, false);
             ƒS.Inventory.add(items.book);
             await ƒS.Speech.tell(characters.camille, text.camille.T0012);
             await ƒS.Speech.tell(characters.camille, text.camille.T0013);
@@ -101,6 +107,7 @@ namespace MurderMystery {
 
      
           if (firstDialogueElement === firstDialogueElementOptions["iSayOk"]) {  
+            ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
             await ƒS.Location.show(locations.wohnzimmer);
             await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
             await ƒS.Speech.tell(characters.camille, text.camille.T0018);
@@ -113,7 +120,7 @@ namespace MurderMystery {
     }
       
 
-    
+    ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);
   
     }
 }

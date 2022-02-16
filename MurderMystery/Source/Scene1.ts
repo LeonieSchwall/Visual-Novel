@@ -36,7 +36,7 @@ namespace MurderMystery {
       };
   
     
-  
+      ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.buero);
       await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -44,17 +44,17 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
       await ƒS.Speech.tell(characters.camille, text.camille.T0001);
       await ƒS.Speech.tell(characters.camille, text.camille.T0002);
+      ƒS.Sound.play(sound.money, 0.5, false);
       await ƒS.Character.animate(characters.geld, characters.geld.pose.normal, fromCenterToCenter());
       await ƒS.Speech.tell(characters.camille, text.camille.T0003);
       // Novel Page
       ƒS.Text.setClass("novel-page");
-      //ƒS.Text.addClass("text");
       ƒS.Text.print("34 Worlington Street");
       ƒS.Inventory.add(items.money);
-      //await ƒS.Inventory.open();
       await ƒS.Character.hide(characters.geld);
       await ƒS.update(1);
       await ƒS.Speech.tell(characters.camille, text.camille.T0004);
+      ƒS.Sound.play(sound.handy, 0.5, false); 
 
       let firstDialogueElementOptions = {
         iSayYes: "Anruf annehmen",
@@ -92,6 +92,7 @@ namespace MurderMystery {
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
 
       await ƒS.Character.hide(characters.camille);
+      ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
       await ƒS.update(1);
   
     }

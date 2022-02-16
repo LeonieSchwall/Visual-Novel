@@ -36,19 +36,22 @@ namespace MurderMystery {
   export let sound = {
     //music oke irgendwie hat es mir mega was zerschossen vorhin beim pullen, lass 
     backgroundfire: "./Audio/Fireplace.wav",
-    backgroundBibliothek: "./Audio/backgroundBibliothek.wav/",
-    backgroundBuero: "./Audio/backgroundBuero.wav/",
-    backgroundEnde: "./Audio/backgroundEnde.wav/",
-    backgroundHaus: "./Audio/backgroundHaus.wav/",
-    backgroundKammer: "./Audio/backgroundKammer.wav/",
-    backgroundWohnzimmer: "./Audio/backgroundWohnzimmer.wav/",
+    backgroundBibliothek: "./Audio/backgroundBibliothek.wav",
+    backgroundBuero: "./Audio/backgroundBuero.wav",
+    backgroundEnde: "./Audio/backgroundEnde.wav",
+    backgroundHaus: "./Audio/backgroundHaus.wav",
+    backgroundKammer: "./Audio/backgroundKammer.wav",
+    backgroundWohnzimmer: "./Audio/backgroundWohnzimmer.wav",
     //sound
     clock: "./Audio/Old Clock.wav",
     paper: "./Audio/paper1.wav",
     paper2: "./Audio/paper2.wav",
     safe: "./Audio/Safe1.wav",
     magie: "./Audio/magie.wav",
-    
+    handy: "./Audio/klingeln.wav",
+    money: "./Audio/money.wav",
+    anruf: "./Audio/call.wav",
+    knife: "./Audio/knife.wav"
   };
 
   //Items
@@ -334,8 +337,11 @@ namespace MurderMystery {
         "<br/>" +
         "Die Hintergründe, Charaktere und Items wurden selbst gezeichnet." +
         "<br/>" +
-        "Die Soundelemente wurden mit einer Envato Lizenz lizensiert heruntergeladen:" +
-        "<br/>"
+        "Die Transitions stammen aus dem FreeTransitions Ordner, der zu Verfügung gestellt wurrde." +
+        "<br/>" +
+        "Die Soundelemente wurden mit einer Envato Elements Lizenz lizensiert heruntergeladen" +
+        "<br/>" 
+        
     );
   }
 

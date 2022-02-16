@@ -30,7 +30,7 @@ namespace MurderMystery {
           T0009: "Machen Sie das. Brauchen Sie sonst noch etwas?",
         },
       };
-      
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.wohnzimmer);
       await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -53,6 +53,7 @@ namespace MurderMystery {
       // Novel Page
       ƒS.Text.setClass("novel-page");
       ƒS.Text.print("3-5-8-1");
+      ƒS.Sound.play(sound.safe, 0.5, false);
       await ƒS.Speech.tell(characters.camille, text.camille.T0007); 
       await ƒS.Character.animate(characters.schlüssel, characters.schlüssel.pose.normal, fromCenterToCenter());
       ƒS.Inventory.add(items.key);
@@ -63,6 +64,7 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0009);
       await ƒS.Speech.tell(characters.violet, text.violet.T0009);
       await ƒS.Speech.tell(characters.camille, text.camille.T0010);
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);
       
 
       // dataForSave.gesprochen mit x = true

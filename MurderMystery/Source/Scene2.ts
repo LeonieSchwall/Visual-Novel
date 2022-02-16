@@ -42,7 +42,7 @@ namespace MurderMystery {
       },
       
     };
-
+    ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.haus);
     await ƒS.update(transition.wipe.duration, transition.wipe.alpha, transition.wipe.edge);
     await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomleft);
@@ -79,7 +79,7 @@ namespace MurderMystery {
     await ƒS.Speech.tell(characters.camille, text.camille.T0010);
     await ƒS.Speech.tell(characters.violet, text.violet.T0004);
     await ƒS.Speech.tell(characters.violet, text.violet.T0005);
-
+    ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
 
   
   }

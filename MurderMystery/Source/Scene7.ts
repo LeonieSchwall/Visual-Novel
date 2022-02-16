@@ -45,11 +45,12 @@ namespace MurderMystery {
       
       };
   
-  
+      ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.buero);
       await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
       await ƒS.update(1);
+      ƒS.Sound.play(sound.handy, 0.5, false);
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
       await ƒS.Speech.tell(characters.smith, text.smith.T0000);
       await ƒS.Speech.tell(characters.camille, text.camille.T0001);
@@ -99,7 +100,7 @@ namespace MurderMystery {
           // break;
           return "GoodEnding"
       }
-     
+      ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
   
     }
 }

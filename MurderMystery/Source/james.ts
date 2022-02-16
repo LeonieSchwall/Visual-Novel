@@ -33,7 +33,7 @@ namespace MurderMystery {
       };
   
     
-  
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.wohnzimmer);
       await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
       await ƒS.update(1);
@@ -60,6 +60,7 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.james, text.james.T0010);
       await ƒS.Speech.tell(characters.camille, text.camille.T0006);
       await ƒS.Speech.tell(characters.james, text.james.T0011);
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);
 
       // dataForSave.gesprochen mit x = true
       dataForSave.gesprochen.james = true;

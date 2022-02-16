@@ -50,6 +50,10 @@ declare namespace MurderMystery {
         paper2: string;
         safe: string;
         magie: string;
+        handy: string;
+        money: string;
+        anruf: string;
+        knife: string;
     };
     let items: {
         key: {

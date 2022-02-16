@@ -37,7 +37,7 @@ namespace MurderMystery {
       };
   
     
-  
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.wohnzimmer);
       await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
@@ -63,6 +63,7 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.luna, text.luna.T0009);
       
       await ƒS.Character.animate(characters.notiz, characters.notiz.pose.normal, fromCenterToCenter());
+      ƒS.Sound.play(sound.paper, 0.5, false);
       ƒS.Inventory.add(items.paper);
       await ƒS.Speech.tell(characters.camille, text.camille.T0009);
       await ƒS.Speech.tell(characters.luna, text.luna.T0010);
@@ -73,6 +74,7 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0011);
       await ƒS.Speech.tell(characters.luna, text.luna.T0012);
       await ƒS.Speech.tell(characters.camille, text.camille.T0012);
+      ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);
       
 
       // dataForSave.gesprochen mit x = true
