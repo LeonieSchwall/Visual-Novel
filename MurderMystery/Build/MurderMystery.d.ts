@@ -2,6 +2,9 @@ declare namespace MurderMystery {
     function BadEnding(): ƒS.SceneReturn;
 }
 declare namespace MurderMystery {
+    function End(): ƒS.SceneReturn;
+}
+declare namespace MurderMystery {
     function GoodEnding(): ƒS.SceneReturn;
 }
 declare namespace MurderMystery {

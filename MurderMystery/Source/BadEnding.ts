@@ -48,7 +48,7 @@ namespace MurderMystery {
       };
   
     
-      //ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
+      ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.haus);
       await ƒS.update(transition.wipe.duration, transition.wipe.alpha, transition.wipe.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
@@ -80,7 +80,9 @@ namespace MurderMystery {
       // Novel Page
       ƒS.Text.setClass("novel-page");
       ƒS.Text.print("Einige Wochen später ...");
-      
+      await ƒS.Location.show(locations.buero);
+      await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
+      await ƒS.update(1);
       ƒS.Sound.play(sound.handy, 0.5, false);
        await ƒS.Speech.tell(characters.camille, text.camille.T0013);
       await ƒS.Speech.tell(characters.smith, text.smith.T0000);
@@ -93,16 +95,11 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0017);
       await ƒS.Speech.tell(characters.smith, text.smith.T0004);
       await ƒS.Speech.tell(characters.camille, text.camille.T0018);
-      
-
-      // Novel Page
-      ƒS.Text.setClass("novel-page");
-      ƒS.Text.print("Ende");
       await ƒS.Character.hide(characters.camille);
       ƒS.Speech.clear();
       await ƒS.update(1);
 
 
-     // ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
+      ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
     }
 }

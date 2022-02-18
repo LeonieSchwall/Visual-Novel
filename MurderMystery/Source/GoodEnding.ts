@@ -41,7 +41,7 @@ namespace MurderMystery {
       };
   
     
-     // ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
+      ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.haus);
       await ƒS.update(transition.wipe.duration, transition.wipe.alpha, transition.wipe.edge);
       await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
@@ -76,12 +76,9 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.james, text.james.T0011);
       await ƒS.Speech.tell(characters.camille, text.camille.T0014);
       await ƒS.Speech.tell(characters.camille, text.camille.T0015);
-      
-      ƒS.Text.setClass("novel-page");
-      ƒS.Text.print("Ende");
       ƒS.Character.hideAll();
       ƒS.Speech.clear();
       await ƒS.update(1);
-      //ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
+      ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
     }
 }

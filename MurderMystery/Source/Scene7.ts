@@ -93,15 +93,15 @@ namespace MurderMystery {
 
       switch (firstDialogueElement) {
         case firstDialogueElementOptions.iSayYes:
-          
+          ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
           return "BadEnding"
-          // break;
+          
         case firstDialogueElementOptions.iSayNo:
           
-          // break;
+          
+          ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
           return "GoodEnding"
       }
-      ƒS.Sound.fade(sound.backgroundBuero, 0, 0.2, true);
   
     }
 }

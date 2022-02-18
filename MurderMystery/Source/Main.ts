@@ -409,8 +409,9 @@ namespace MurderMystery {
       { id:"marie",scene: marie, name: "marie", next: "scene5" },
       { id:"scene6",scene: Scene6, name: "Scene6" },
       { id:"scene7",scene: Scene7, name: "Scene7" },
-      { id:"GoodEnding",scene: GoodEnding, name: "GoodEnding" },
-      { id:"BadEnding",scene: BadEnding, name: "BadEnding" },
+      { id:"GoodEnding",scene: GoodEnding, name: "GoodEnding", next:"End" },
+      { id:"BadEnding",scene: BadEnding, name: "BadEnding", next:"End" },
+      { id:"End",scene: End, name: "End" },
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

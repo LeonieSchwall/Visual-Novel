@@ -41,7 +41,7 @@ var MurderMystery;
                 T0018: "Das hoffe ich, so kann ich meine Karriere nicht starten."
             },
         };
-        //ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
         await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
         await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
@@ -71,6 +71,9 @@ var MurderMystery;
         // Novel Page
         MurderMystery.ƒS.Text.setClass("novel-page");
         MurderMystery.ƒS.Text.print("Einige Wochen später ...");
+        await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
+        await MurderMystery.ƒS.update(MurderMystery.transition.puzzle.duration, MurderMystery.transition.puzzle.alpha, MurderMystery.transition.puzzle.edge);
+        await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.play(MurderMystery.sound.handy, 0.5, false);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0013);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
@@ -83,15 +86,27 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0017);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0004);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0018);
-        // Novel Page
-        MurderMystery.ƒS.Text.setClass("novel-page");
-        MurderMystery.ƒS.Text.print("Ende");
         await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
         MurderMystery.ƒS.Speech.clear();
         await MurderMystery.ƒS.update(1);
-        // ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0, 0.2, true);
     }
     MurderMystery.BadEnding = BadEnding;
+})(MurderMystery || (MurderMystery = {}));
+var MurderMystery;
+(function (MurderMystery) {
+    async function End() {
+        console.log("FudgeStory End starting");
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0.07, 0.1, true);
+        await MurderMystery.ƒS.Location.show(MurderMystery.locations.Startscreen);
+        await MurderMystery.ƒS.update(2);
+        MurderMystery.ƒS.Text.setClass("novel-page");
+        MurderMystery.ƒS.Text.print("Ende");
+        MurderMystery.ƒS.Speech.clear();
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0, 0.2, true);
+        await MurderMystery.ƒS.update(2);
+    }
+    MurderMystery.End = End;
 })(MurderMystery || (MurderMystery = {}));
 var MurderMystery;
 (function (MurderMystery) {
@@ -131,7 +146,7 @@ var MurderMystery;
                 T0015: "Marie werde ich auch mitnehmen, das war mindestens Beihilfe zur Mordvertuschung."
             },
         };
-        // ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
         await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
         await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
@@ -165,12 +180,10 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0011);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0014);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
-        MurderMystery.ƒS.Text.setClass("novel-page");
-        MurderMystery.ƒS.Text.print("Ende");
         MurderMystery.ƒS.Character.hideAll();
         MurderMystery.ƒS.Speech.clear();
         await MurderMystery.ƒS.update(1);
-        //ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
+        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0, 0.2, true);
     }
     MurderMystery.GoodEnding = GoodEnding;
 })(MurderMystery || (MurderMystery = {}));
@@ -598,8 +611,9 @@ var MurderMystery;
             { id: "marie", scene: MurderMystery.marie, name: "marie", next: "scene5" },
             { id: "scene6", scene: MurderMystery.Scene6, name: "Scene6" },
             { id: "scene7", scene: MurderMystery.Scene7, name: "Scene7" },
-            { id: "GoodEnding", scene: MurderMystery.GoodEnding, name: "GoodEnding" },
-            { id: "BadEnding", scene: MurderMystery.BadEnding, name: "BadEnding" },
+            { id: "GoodEnding", scene: MurderMystery.GoodEnding, name: "GoodEnding", next: "End" },
+            { id: "BadEnding", scene: MurderMystery.BadEnding, name: "BadEnding", next: "End" },
+            { id: "End", scene: MurderMystery.End, name: "End" },
         ];
         let uiElement = document.querySelector("[type=interface]");
         MurderMystery.dataForSave = MurderMystery.ƒS.Progress.setData(MurderMystery.dataForSave, uiElement);
@@ -1216,13 +1230,12 @@ var MurderMystery;
         let firstDialogueElement = await MurderMystery.ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
         switch (firstDialogueElement) {
             case firstDialogueElementOptions.iSayYes:
+                MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0, 0.2, true);
                 return "BadEnding";
-            // break;
             case firstDialogueElementOptions.iSayNo:
-                // break;
+                MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0, 0.2, true);
                 return "GoodEnding";
         }
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0, 0.2, true);
     }
     MurderMystery.Scene7 = Scene7;
 })(MurderMystery || (MurderMystery = {}));
