@@ -34,7 +34,7 @@ namespace MurderMystery {
   };
 
   export let sound = {
-    //music oke irgendwie hat es mir mega was zerschossen vorhin beim pullen, lass 
+    //music 
     backgroundfire: "./Audio/Fireplace.wav",
     backgroundBibliothek: "./Audio/backgroundBibliothek.wav",
     backgroundBuero: "./Audio/backgroundBuero.wav",
@@ -48,7 +48,7 @@ namespace MurderMystery {
     paper2: "./Audio/paper2.wav",
     safe: "./Audio/Safe1.wav",
     magie: "./Audio/magie.wav",
-    handy: "./Audio/klingeln.wav",
+    handy: "./Audio/handy.wav",
     money: "./Audio/money.wav",
     anruf: "./Audio/call.wav",
     knife: "./Audio/knife.wav"
@@ -147,6 +147,9 @@ namespace MurderMystery {
     narrator: {
       name: "",
     },
+    kriminalamt: {
+      name: "Kriminalamt",
+    },
 
     smith: {
       name: "Mr. Smith",
@@ -156,9 +159,8 @@ namespace MurderMystery {
       name: data.protagonist.name,
       origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
-        angry: "",
-        happy: "./Images/Characters/Luna.png",
-        upset: "",
+        happy: "./Images/Characters/Camille.png",
+        
       },
     },
    
@@ -166,36 +168,28 @@ namespace MurderMystery {
       name: "Violet Grisham: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Nina.png",
-        happy: "./Images/Characters/Nina.png",
-        upset: "",
+        happy: "./Images/Characters/Violet.png",
       },
     },
     luna: {
       name: "Luna Grisham: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Luna.png",
         happy: "./Images/Characters/Luna.png",
-        upset: "",
       },
     },
     james: {
       name: "James Taylor: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Luna.png",
-        happy: "./Images/Characters/Luna.png",
-        upset: "",
+        happy: "./Images/Characters/James.png",
       },
     },
     marie: {
       name: "Marie: ",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./Images/Characters/Luna.png",
-        happy: "./Images/Characters/Luna.png",
-        upset: "",
+        happy: "./Images/Characters/Marie.png",
       },
     },
     schlüssel: {
@@ -259,7 +253,7 @@ namespace MurderMystery {
   //Animation
   export function fromLeftToRight(): ƒS.AnimationDefinition {
     return {
-      start: { translation: ƒS.positions.bottomleft },
+      start: { translation: ƒS.positionPercent(15,100) },
       end: { translation: ƒS.positions.bottomright },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
@@ -277,8 +271,8 @@ namespace MurderMystery {
 
   export function fromlefterToLeft(): ƒS.AnimationDefinition {
     return {
-      start: { translation: ƒS.positions.bottomleft },
-      end: { translation: ƒS.positionPercent(31, 100) },
+      start: { translation: ƒS.positionPercent(75,100) },
+      end: { translation: ƒS.positionPercent(100, 100) },
       duration: 1,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
     };
@@ -380,6 +374,8 @@ namespace MurderMystery {
   }
 
   let menu: boolean = true;
+
+  export let delay: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(2)]);
 
   //Shortcuts fürs Menu
   document.addEventListener("keydown", hndKeyPress);

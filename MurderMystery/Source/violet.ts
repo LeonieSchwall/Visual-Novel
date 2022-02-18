@@ -33,8 +33,8 @@ namespace MurderMystery {
       ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.wohnzimmer);
       await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
-      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
-      await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
+      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
+      await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positionPercent(75, 100));
       await ƒS.update(1);
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
       await ƒS.Speech.tell(characters.violet, text.violet.T0000);
@@ -55,6 +55,7 @@ namespace MurderMystery {
       ƒS.Text.print("3-5-8-1");
       ƒS.Sound.play(sound.safe, 0.5, false);
       await ƒS.Speech.tell(characters.camille, text.camille.T0007); 
+      await delay();
       await ƒS.Character.animate(characters.schlüssel, characters.schlüssel.pose.normal, fromCenterToCenter());
       ƒS.Inventory.add(items.key);
       await ƒS.Speech.tell(characters.camille, text.camille.T0008);
@@ -64,10 +65,10 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0009);
       await ƒS.Speech.tell(characters.violet, text.violet.T0009);
       await ƒS.Speech.tell(characters.camille, text.camille.T0010);
+      await ƒS.Character.hide(characters.violet);
+      await ƒS.update(1);
       ƒS.Sound.fade(sound.backgroundWohnzimmer, 0, 0.2, true);
       
-
-      // dataForSave.gesprochen mit x = true
       dataForSave.gesprochen.violet = true;
       
     }

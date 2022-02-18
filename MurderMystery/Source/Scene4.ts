@@ -4,11 +4,10 @@ namespace MurderMystery {
 
     let text = {
       camille: {
-        T0000: "Als erstes werde ich heute die Personen die Mr. Grisham kannten befragen. ",
+        //T0000: "Als erstes werde ich heute die Personen die Mr. Grisham kannten befragen. ",
         T0001: "Guten Morgen Mr. Smith.",
         T0002: "Was für schreckliche Neuigkeiten, ich werde das Paket sofort in Augenschein nehmen.",
-        T0003: "Was soll ich denn als erstes untersuchen?",
-        T0004: "",
+        T0003: "Was soll ich denn untersuchen?",
       },
 
       smith: {
@@ -20,9 +19,9 @@ namespace MurderMystery {
     ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.buero);
     await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
-    await ƒS.Character.show( characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
+    await ƒS.Character.show( characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.camille, text.camille.T0000);
+    //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
     await ƒS.Speech.tell(characters.camille, text.camille.T0001);
     await ƒS.Speech.tell(characters.smith, text.smith.T0000);
     await ƒS.Speech.tell(characters.smith, text.smith.T0001);
@@ -53,7 +52,7 @@ namespace MurderMystery {
         await ƒS.Character.hide(characters.knife);
         await ƒS.update(1);
         delete firstDialogueElementOptions.iSayYes;
-        await ƒS.Speech.tell(characters.camille, text.camille.T0000);
+        //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
           // await delay();
       }
       if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {

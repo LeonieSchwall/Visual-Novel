@@ -17,7 +17,7 @@ namespace MurderMystery {
     await ƒS.Location.show(locations.Startscreen);
     await ƒS.update(2);
     await ƒS.Speech.tell(characters.narrator, "Willkommen zur Visual Novel 'Murder Mystery'.");
-    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positions.bottomcenter);
+    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);

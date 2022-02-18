@@ -48,11 +48,11 @@ namespace MurderMystery {
       };
   
     
-      ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
+      //ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.haus);
       await ƒS.update(transition.wipe.duration, transition.wipe.alpha, transition.wipe.edge);
-      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
-      await ƒS.Character.show(characters.marie, characters.marie.pose.happy, ƒS.positions.bottomright);
+      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
+      await ƒS.Character.show(characters.marie, characters.marie.pose.happy, ƒS.positionPercent(75, 100));
       await ƒS.update(1);
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
       await ƒS.Speech.tell(characters.marie, text.marie.T0000);
@@ -73,6 +73,8 @@ namespace MurderMystery {
       await ƒS.Speech.tell(characters.camille, text.camille.T0011);
       await ƒS.Speech.tell(characters.marie, text.marie.T0005);
       await ƒS.Speech.tell(characters.camille, text.camille.T0012);
+      await ƒS.Character.hide(characters.marie);
+      await ƒS.update(1);
 
 
       // Novel Page
@@ -96,8 +98,11 @@ namespace MurderMystery {
       // Novel Page
       ƒS.Text.setClass("novel-page");
       ƒS.Text.print("Ende");
+      await ƒS.Character.hide(characters.camille);
+      ƒS.Speech.clear();
+      await ƒS.update(1);
 
 
-      ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
+     // ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
     }
 }

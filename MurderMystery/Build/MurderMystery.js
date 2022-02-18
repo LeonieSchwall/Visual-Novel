@@ -41,11 +41,11 @@ var MurderMystery;
                 T0018: "Das hoffe ich, so kann ich meine Karriere nicht starten."
             },
         };
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0.07, 0.1, true);
+        //ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
         await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.marie, MurderMystery.characters.marie.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.marie, MurderMystery.characters.marie.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.marie, text.marie.T0000);
@@ -66,6 +66,8 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.marie, text.marie.T0005);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.marie);
+        await MurderMystery.ƒS.update(1);
         // Novel Page
         MurderMystery.ƒS.Text.setClass("novel-page");
         MurderMystery.ƒS.Text.print("Einige Wochen später ...");
@@ -84,7 +86,10 @@ var MurderMystery;
         // Novel Page
         MurderMystery.ƒS.Text.setClass("novel-page");
         MurderMystery.ƒS.Text.print("Ende");
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0, 0.2, true);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
+        MurderMystery.ƒS.Speech.clear();
+        await MurderMystery.ƒS.update(1);
+        // ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
     }
     MurderMystery.BadEnding = BadEnding;
 })(MurderMystery || (MurderMystery = {}));
@@ -126,11 +131,11 @@ var MurderMystery;
                 T0015: "Marie werde ich auch mitnehmen, das war mindestens Beihilfe zur Mordvertuschung."
             },
         };
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0.07, 0.1, true);
+        // ƒS.Sound.fade(sound.backgroundHaus, 0.07, 0.1, true); 
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
         await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0000);
@@ -162,9 +167,10 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0015);
         MurderMystery.ƒS.Text.setClass("novel-page");
         MurderMystery.ƒS.Text.print("Ende");
-        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
+        MurderMystery.ƒS.Character.hideAll();
+        MurderMystery.ƒS.Speech.clear();
         await MurderMystery.ƒS.update(1);
-        MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0, 0.2, true);
+        //ƒS.Sound.fade(sound.backgroundHaus, 0, 0.2, true);
     }
     MurderMystery.GoodEnding = GoodEnding;
 })(MurderMystery || (MurderMystery = {}));
@@ -184,7 +190,7 @@ var MurderMystery;
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.Startscreen);
         await MurderMystery.ƒS.update(2);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, "Willkommen zur Visual Novel 'Murder Mystery'.");
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positions.bottomcenter);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0001);
@@ -235,7 +241,7 @@ var MurderMystery;
         },
     };
     MurderMystery.sound = {
-        //music oke irgendwie hat es mir mega was zerschossen vorhin beim pullen, lass 
+        //music 
         backgroundfire: "./Audio/Fireplace.wav",
         backgroundBibliothek: "./Audio/backgroundBibliothek.wav",
         backgroundBuero: "./Audio/backgroundBuero.wav",
@@ -249,7 +255,7 @@ var MurderMystery;
         paper2: "./Audio/paper2.wav",
         safe: "./Audio/Safe1.wav",
         magie: "./Audio/magie.wav",
-        handy: "./Audio/klingeln.wav",
+        handy: "./Audio/handy.wav",
         money: "./Audio/money.wav",
         anruf: "./Audio/call.wav",
         knife: "./Audio/knife.wav"
@@ -344,6 +350,9 @@ var MurderMystery;
         narrator: {
             name: "",
         },
+        kriminalamt: {
+            name: "Kriminalamt",
+        },
         smith: {
             name: "Mr. Smith",
         },
@@ -351,45 +360,35 @@ var MurderMystery;
             name: MurderMystery.data.protagonist.name,
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
-                angry: "",
-                happy: "./Images/Characters/Luna.png",
-                upset: "",
+                happy: "./Images/Characters/Camille.png",
             },
         },
         violet: {
             name: "Violet Grisham: ",
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                angry: "./Images/Characters/Nina.png",
-                happy: "./Images/Characters/Nina.png",
-                upset: "",
+                happy: "./Images/Characters/Violet.png",
             },
         },
         luna: {
             name: "Luna Grisham: ",
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                angry: "./Images/Characters/Luna.png",
                 happy: "./Images/Characters/Luna.png",
-                upset: "",
             },
         },
         james: {
             name: "James Taylor: ",
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                angry: "./Images/Characters/Luna.png",
-                happy: "./Images/Characters/Luna.png",
-                upset: "",
+                happy: "./Images/Characters/James.png",
             },
         },
         marie: {
             name: "Marie: ",
             origin: MurderMystery.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                angry: "./Images/Characters/Luna.png",
-                happy: "./Images/Characters/Luna.png",
-                upset: "",
+                happy: "./Images/Characters/Marie.png",
             },
         },
         schlüssel: {
@@ -452,7 +451,7 @@ var MurderMystery;
     //Animation
     function fromLeftToRight() {
         return {
-            start: { translation: MurderMystery.ƒS.positions.bottomleft },
+            start: { translation: MurderMystery.ƒS.positionPercent(15, 100) },
             end: { translation: MurderMystery.ƒS.positions.bottomright },
             duration: 2,
             playmode: MurderMystery.ƒS.ANIMATION_PLAYMODE.PLAYONCE,
@@ -470,8 +469,8 @@ var MurderMystery;
     MurderMystery.fromleftToCenter = fromleftToCenter;
     function fromlefterToLeft() {
         return {
-            start: { translation: MurderMystery.ƒS.positions.bottomleft },
-            end: { translation: MurderMystery.ƒS.positionPercent(31, 100) },
+            start: { translation: MurderMystery.ƒS.positionPercent(75, 100) },
+            end: { translation: MurderMystery.ƒS.positionPercent(100, 100) },
             duration: 1,
             playmode: MurderMystery.ƒS.ANIMATION_PLAYMODE.PLAYONCE,
         };
@@ -567,6 +566,7 @@ var MurderMystery;
         }
     }
     let menu = true;
+    MurderMystery.delay = MurderMystery.ƒS.Progress.defineSignal([() => MurderMystery.ƒS.Progress.delay(2)]);
     //Shortcuts fürs Menu
     document.addEventListener("keydown", hndKeyPress);
     async function hndKeyPress(_event) {
@@ -633,7 +633,7 @@ var MurderMystery;
                 T0001: "Ich habe gerade einen unbekannten Anruf erhalten. Haben Sie ein Paket bekommen?",
                 T0002: "Ah, dann gibt das ganze ja einen Sinn. Sie haben Ihren ersten Auftrag erhalten.",
                 T0003: "Genau der Auftraggeber hat mir mitgeteilt, ich solle unbedingt Sie auf den Fall ansetzen",
-                T0004: "Allerdings, es geht um den Todesfall in der Familie Grisham.",
+                T0004: "Es geht um den Todesfall in der Familie Grisham.",
                 T0005: "Denke ich auch, aber wenn es um so viel Geld geht würde ich einfach mal nachforschen.",
                 T0006: "Sehr gut, ich wünsche einen erfolgreichen ersten Fall Miss Beuford."
             },
@@ -645,8 +645,8 @@ var MurderMystery;
                 T0004: "Mh das sagt mir jetzt nicht wirklich was!",
                 T0005: "Guten Tag, hier Detektivin Beuford am Apparat.",
                 T0006: "Vielen Dank Mr. Smith.",
-                T0007: "Ja, ich habe ein Paket erhalten, in dem eine Menga Geld lag und eine seltsame Notiz.",
-                T0008: "Einen Auftrag, ich habe nur eine Adresse und sonst nichts.",
+                T0007: "Ja, ich habe ein Paket erhalten, in dem eine Menge Geld lag und eine seltsame Notiz.",
+                T0008: "Einen Auftrag? Ich habe nur eine Adresse und sonst nichts.",
                 T0009: "Und um was es geht es?",
                 T0010: "Grisham ,ich dachte das war Selbstmord.",
                 T0011: "Alles klar Mr. Smith, ich werde mal vorbeischauen.",
@@ -659,13 +659,13 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
         await MurderMystery.ƒS.update(MurderMystery.transition.puzzle.duration, MurderMystery.transition.puzzle.alpha, MurderMystery.transition.puzzle.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
-        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
-        MurderMystery.ƒS.Sound.play(MurderMystery.sound.money, 0.5, false);
+        MurderMystery.ƒS.Sound.play(MurderMystery.sound.money, 0.3, false);
         await MurderMystery.ƒS.Character.animate(MurderMystery.characters.geld, MurderMystery.characters.geld.pose.normal, MurderMystery.fromCenterToCenter());
+        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
         // Novel Page
         MurderMystery.ƒS.Text.setClass("novel-page");
@@ -675,6 +675,7 @@ var MurderMystery;
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
         MurderMystery.ƒS.Sound.play(MurderMystery.sound.handy, 0.5, false);
+        await MurderMystery.delay();
         let firstDialogueElementOptions = {
             iSayYes: "Anruf annehmen",
             iSayNo: "Anruf ignorieren"
@@ -716,26 +717,22 @@ var MurderMystery;
     async function Scene2() {
         console.log("FudgeStory Template Scene starting");
         let text = {
-            narrator: {
-                T0000: "",
-                T0001: ""
-            },
             camille: {
                 T0000: "Guten Tag! Bin ich hier richtig bei den Grishams?",
                 T0001: "Ich bin Detektivin und habe heute morgen den Auftrag bekommen hier nachzuforschen.",
-                T0002: "Darf ich fragen wer sie sind?",
+                T0002: "Darf ich fragen wer Sie sind?",
                 T0003: "Sehr angenehm Sie kennenzulernen.",
                 T0004: "Wissen Sie vielleicht wer mich engagiert haben könnte?",
                 T0005: "Ja das stimmt, dennoch wurde ich engagiert und würde mich gerne einmal umsehen wenn es Ihnen Recht ist.",
                 T0006: "Sehr gerne, ich warte.",
-                T0007: "Guten tag Mrs. Grisham. Mein herzliches Beileid für Ihren Verlust.",
+                T0007: "Guten Tag Mrs. Grisham. Mein herzliches Beileid für Ihren Verlust.",
                 T0008: "Ja das bin ich.",
                 T0009: "Mord? Es wird doch angenommen das es ein Selbstmord war.",
                 T0010: "Haben Sie mich dann engagiert?",
             },
             james: {
                 T0000: "Guten Tag, ja das sind sie.",
-                T0001: "Was kann ich für sie tun?",
+                T0001: "Was kann ich für Sie tun?",
                 T0002: "Davon weiß ich nichts.",
                 T0003: "Ich bin James Taylor, der Verwalter von Mr. Grisham und halte hier alles am Laufen.",
                 T0004: "Leider nein, denn es ist ja eigentlich alles klar.",
@@ -755,8 +752,8 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.haus);
         await MurderMystery.ƒS.update(MurderMystery.transition.wipe.duration, MurderMystery.transition.wipe.alpha, MurderMystery.transition.wipe.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positions.bottomleft);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0000);
@@ -773,9 +770,10 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0006);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0007);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
+        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.fromlefterToLeft());
         await MurderMystery.ƒS.Character.hide(MurderMystery.characters.james);
         await MurderMystery.ƒS.update(1);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
@@ -787,6 +785,10 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0004);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0005);
+        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.fromlefterToLeft());
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.violet);
+        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.fromLeftToRight());
+        await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundHaus, 0, 0.2, true);
     }
     MurderMystery.Scene2 = Scene2;
@@ -830,7 +832,7 @@ var MurderMystery;
                 T0017: "Nein, ich werde morgen noch einmal vorbeikommen und die Belegschaft befragen und am liebsten auch Ihre Familie.",
                 T0018: "Kein Problem.",
             },
-            narrator: {
+            Kriminalamt: {
                 T0000: "Guten Tag, was kann ich für Sie tun?",
                 T0001: "Mrs. Grisham hat uns schon informiert, dass sie die Informationen erhalten dürfen.",
                 T0002: "Natürlich, ich kann Ihnen auch die Tatwaffe schicken und sobald der Laborbericht da ist, diesen auch.",
@@ -841,8 +843,8 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBibliothek, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.bibliothek);
         await MurderMystery.ƒS.update(MurderMystery.transition.circle.duration, MurderMystery.transition.circle.alpha, MurderMystery.transition.circle.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0001);
@@ -864,8 +866,8 @@ var MurderMystery;
                 await MurderMystery.ƒS.Character.hide(MurderMystery.characters.violet);
                 await MurderMystery.ƒS.update(1);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
                 await MurderMystery.ƒS.Character.animate(MurderMystery.characters.safe, MurderMystery.characters.safe.pose.normal, MurderMystery.fromCenterToCenter());
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
                 MurderMystery.ƒS.Inventory.add(MurderMystery.items.safe);
                 await MurderMystery.ƒS.Character.hide(MurderMystery.characters.safe);
                 await MurderMystery.ƒS.update(1);
@@ -876,19 +878,19 @@ var MurderMystery;
                 MurderMystery.ƒS.Sound.play(MurderMystery.sound.anruf, 0.5, false);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0000);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.kriminalamt, text.Kriminalamt.T0000);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0001);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.kriminalamt, text.Kriminalamt.T0001);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0002);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.kriminalamt, text.Kriminalamt.T0002);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0003);
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.narrator, text.narrator.T0004);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.kriminalamt, text.Kriminalamt.T0003);
+                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.kriminalamt, text.Kriminalamt.T0004);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
                 delete firstDialogueElementOptions.iSayNo;
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayOk"]) {
-                await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positions.bottomright);
+                await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
                 await MurderMystery.ƒS.update(1);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0005);
@@ -909,6 +911,7 @@ var MurderMystery;
         }
         await MurderMystery.ƒS.Character.animate(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.fromLeftToRight());
         await MurderMystery.ƒS.Character.hide(MurderMystery.characters.camille);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.violet);
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBibliothek, 0, 0.2, true);
         await MurderMystery.ƒS.update(1);
     }
@@ -920,11 +923,10 @@ var MurderMystery;
         console.log("FudgeStory Template Scene4 starting");
         let text = {
             camille: {
-                T0000: "Als erstes werde ich heute die Personen die Mr. Grisham kannten befragen. ",
+                //T0000: "Als erstes werde ich heute die Personen die Mr. Grisham kannten befragen. ",
                 T0001: "Guten Morgen Mr. Smith.",
                 T0002: "Was für schreckliche Neuigkeiten, ich werde das Paket sofort in Augenschein nehmen.",
-                T0003: "Was soll ich denn als erstes untersuchen?",
-                T0004: "",
+                T0003: "Was soll ich denn untersuchen?",
             },
             smith: {
                 T0000: "Guten Morgen Mrs. Beuford, ich habe Ihr Paket entgegen genommen und der Inhalt bestätigt einen Mord.",
@@ -935,9 +937,9 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
         await MurderMystery.ƒS.update(MurderMystery.transition.puzzle.duration, MurderMystery.transition.puzzle.alpha, MurderMystery.transition.puzzle.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
         await MurderMystery.ƒS.update(1);
-        await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
+        //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0001);
@@ -962,7 +964,7 @@ var MurderMystery;
                 await MurderMystery.ƒS.Character.hide(MurderMystery.characters.knife);
                 await MurderMystery.ƒS.update(1);
                 delete firstDialogueElementOptions.iSayYes;
-                await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
+                //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
                 // await delay();
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
@@ -1018,7 +1020,7 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         if (Object.keys(zusprechen).length > 0) {
@@ -1074,7 +1076,7 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
@@ -1087,13 +1089,12 @@ var MurderMystery;
         while (loopCount < 3) {
             let firstDialogueElement = await MurderMystery.ƒS.Menu.getInput(firstDialogueElementOptions, "auswahl");
             if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
-                MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBibliothek, 0.07, 0.1, true);
                 await MurderMystery.ƒS.Location.show(MurderMystery.locations.bibliothek);
                 await MurderMystery.ƒS.update(MurderMystery.transition.circle.duration, MurderMystery.transition.circle.alpha, MurderMystery.transition.circle.edge);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0002);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0003);
-                await MurderMystery.ƒS.Character.animate(MurderMystery.characters.poison, MurderMystery.characters.poison.pose.normal, MurderMystery.fromCenterToCenter());
                 MurderMystery.ƒS.Sound.play(MurderMystery.sound.magie, 0.5, false);
+                await MurderMystery.ƒS.Character.animate(MurderMystery.characters.poison, MurderMystery.characters.poison.pose.normal, MurderMystery.fromCenterToCenter());
                 MurderMystery.ƒS.Inventory.add(MurderMystery.items.poison);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0004);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0005);
@@ -1108,7 +1109,6 @@ var MurderMystery;
                 delete firstDialogueElementOptions.iSayYes;
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
-                MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundKammer, 0.07, 0.1, true);
                 await MurderMystery.ƒS.Location.show(MurderMystery.locations.kammer);
                 await MurderMystery.ƒS.update(MurderMystery.transition.wipe2.duration, MurderMystery.transition.wipe2.alpha, MurderMystery.transition.wipe2.edge);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
@@ -1168,7 +1168,7 @@ var MurderMystery;
                 T0002: "Sehr gerne, ich zähle auf was ich gefunden habe.",
                 T0003: "Mr. Grisham wurde morgens von Marie dem Hausmädchen gefunden.",
                 T0004: "Wann genau, da wiedersprechen sich Marie und James der Verwalter.",
-                T0005: "Marie sagt Sie hätte Mr. Grisham gegen acht gefunden und dann geschrien.",
+                T0005: "Marie sagt Sie hätte Mr. Grisham gegen sieben gefunden und dann geschrien.",
                 T0006: "James Taylor behauptet allerdings sie zweimal schreien gehört zu haben, einmal um sechs und dann drei Stunden später als sie ihn geholt hat.",
                 T0007: "Was sie in der Zeit gemacht hat weiß ich nicht genau.",
                 T0008: "Das könnte sein, aber warum sollte sie das postmortem tun?",
@@ -1188,9 +1188,10 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundBuero, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.buero);
         await MurderMystery.ƒS.update(MurderMystery.transition.puzzle.duration, MurderMystery.transition.puzzle.alpha, MurderMystery.transition.puzzle.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
         await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.play(MurderMystery.sound.handy, 0.5, false);
+        await MurderMystery.delay();
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.smith, text.smith.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0001);
@@ -1273,8 +1274,8 @@ var MurderMystery;
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
         await MurderMystery.ƒS.update(1);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.james, MurderMystery.characters.james.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0000);
@@ -1295,8 +1296,9 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0010);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.james, text.james.T0011);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.james);
+        await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0, 0.2, true);
-        // dataForSave.gesprochen mit x = true
         MurderMystery.dataForSave.gesprochen.james = true;
     }
     MurderMystery.james = james;
@@ -1332,15 +1334,15 @@ var MurderMystery;
                 T0008: "Ja das habe ich tatsächlich. Ich dachte es ist für mich und habe es mitgenommen.",
                 T0009: "Es ist dieser Zettel hier, er lag auf seinem Schreibtisch herum.",
                 T0010: "Das ist die Geheimsprache von meinem Vater und uns Kindern.",
-                T0011: "Auf dem Zettel steht - James ist mein giftiger S -, den Rest kann man nicht mehr lesen.",
+                T0011: "Auf dem Zettel steht - James ist mein S -, den Rest kann man nicht mehr lesen.",
                 T0012: "Keine Ahnung, aber vielleicht finden Sie es ja heraus."
             },
         };
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.luna, MurderMystery.characters.luna.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.luna, MurderMystery.characters.luna.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.luna, text.luna.T0000);
@@ -1360,8 +1362,8 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.luna, text.luna.T0008);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.luna, text.luna.T0009);
-        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.notiz, MurderMystery.characters.notiz.pose.normal, MurderMystery.fromCenterToCenter());
         MurderMystery.ƒS.Sound.play(MurderMystery.sound.paper, 0.5, false);
+        await MurderMystery.ƒS.Character.animate(MurderMystery.characters.notiz, MurderMystery.characters.notiz.pose.normal, MurderMystery.fromCenterToCenter());
         MurderMystery.ƒS.Inventory.add(MurderMystery.items.paper);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.luna, text.luna.T0010);
@@ -1372,6 +1374,8 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0011);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.luna, text.luna.T0012);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0012);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.luna);
+        await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0, 0.2, true);
         // dataForSave.gesprochen mit x = true
         MurderMystery.dataForSave.gesprochen.luna = true;
@@ -1417,8 +1421,8 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.marie, MurderMystery.characters.marie.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.marie, MurderMystery.characters.marie.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.marie, text.marie.T0000);
@@ -1487,8 +1491,8 @@ var MurderMystery;
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0.07, 0.1, true);
         await MurderMystery.ƒS.Location.show(MurderMystery.locations.wohnzimmer);
         await MurderMystery.ƒS.update(MurderMystery.transition.clock.duration, MurderMystery.transition.clock.alpha, MurderMystery.transition.clock.edge);
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(30, 100));
-        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positions.bottomright);
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.camille, MurderMystery.characters.camille.pose.happy, MurderMystery.ƒS.positionPercent(15, 100));
+        await MurderMystery.ƒS.Character.show(MurderMystery.characters.violet, MurderMystery.characters.violet.pose.happy, MurderMystery.ƒS.positionPercent(75, 100));
         await MurderMystery.ƒS.update(1);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0000);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0000);
@@ -1509,6 +1513,7 @@ var MurderMystery;
         MurderMystery.ƒS.Text.print("3-5-8-1");
         MurderMystery.ƒS.Sound.play(MurderMystery.sound.safe, 0.5, false);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
+        await MurderMystery.delay();
         await MurderMystery.ƒS.Character.animate(MurderMystery.characters.schlüssel, MurderMystery.characters.schlüssel.pose.normal, MurderMystery.fromCenterToCenter());
         MurderMystery.ƒS.Inventory.add(MurderMystery.items.key);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0008);
@@ -1518,8 +1523,9 @@ var MurderMystery;
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0009);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.violet, text.violet.T0009);
         await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0010);
+        await MurderMystery.ƒS.Character.hide(MurderMystery.characters.violet);
+        await MurderMystery.ƒS.update(1);
         MurderMystery.ƒS.Sound.fade(MurderMystery.sound.backgroundWohnzimmer, 0, 0.2, true);
-        // dataForSave.gesprochen mit x = true
         MurderMystery.dataForSave.gesprochen.violet = true;
     }
     MurderMystery.violet = violet;

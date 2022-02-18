@@ -25,7 +25,7 @@ namespace MurderMystery {
           T0002: "Sehr gerne, ich zähle auf was ich gefunden habe.",
           T0003: "Mr. Grisham wurde morgens von Marie dem Hausmädchen gefunden.",
           T0004: "Wann genau, da wiedersprechen sich Marie und James der Verwalter.",
-          T0005: "Marie sagt Sie hätte Mr. Grisham gegen acht gefunden und dann geschrien.",
+          T0005: "Marie sagt Sie hätte Mr. Grisham gegen sieben gefunden und dann geschrien.",
           T0006: "James Taylor behauptet allerdings sie zweimal schreien gehört zu haben, einmal um sechs und dann drei Stunden später als sie ihn geholt hat.",
           T0007: "Was sie in der Zeit gemacht hat weiß ich nicht genau.",
           T0008: "Das könnte sein, aber warum sollte sie das postmortem tun?",
@@ -48,9 +48,10 @@ namespace MurderMystery {
       ƒS.Sound.fade(sound.backgroundBuero, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.buero);
       await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
-      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
+      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
       await ƒS.update(1);
       ƒS.Sound.play(sound.handy, 0.5, false);
+      await delay();
       await ƒS.Speech.tell(characters.camille, text.camille.T0000);
       await ƒS.Speech.tell(characters.smith, text.smith.T0000);
       await ƒS.Speech.tell(characters.camille, text.camille.T0001);

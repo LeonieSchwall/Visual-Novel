@@ -35,7 +35,7 @@ namespace MurderMystery {
     ƒS.Sound.fade(sound.backgroundWohnzimmer, 0.07, 0.1, true); 
     await ƒS.Location.show(locations.wohnzimmer);
     await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
-    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
+    await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.camille, text.camille.T0000);
     await ƒS.Speech.tell(characters.camille, text.camille.T0001);
@@ -52,14 +52,14 @@ namespace MurderMystery {
       let firstDialogueElement: string = await ƒS.Menu.getInput( firstDialogueElementOptions,"auswahl");
 
       if (firstDialogueElement === firstDialogueElementOptions["iSayYes"]) {
-        ƒS.Sound.fade(sound.backgroundBibliothek, 0.07, 0.1, true); 
+       
         await ƒS.Location.show(locations.bibliothek);
         await ƒS.update(transition.circle.duration, transition.circle.alpha, transition.circle.edge);
         await ƒS.Speech.tell(characters.camille, text.camille.T0002);
         await ƒS.Speech.tell(characters.camille, text.camille.T0003);
-
-        await ƒS.Character.animate(characters.poison, characters.poison.pose.normal, fromCenterToCenter());
         ƒS.Sound.play(sound.magie, 0.5, false);
+        await ƒS.Character.animate(characters.poison, characters.poison.pose.normal, fromCenterToCenter());
+        
         ƒS.Inventory.add(items.poison);
         await ƒS.Speech.tell(characters.camille, text.camille.T0004);
         await ƒS.Speech.tell(characters.camille, text.camille.T0005);
@@ -75,7 +75,7 @@ namespace MurderMystery {
           delete firstDialogueElementOptions.iSayYes;
         }
         if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
-            ƒS.Sound.fade(sound.backgroundKammer, 0.07, 0.1, true); 
+             
             await ƒS.Location.show(locations.kammer);
             await ƒS.update(transition.wipe2.duration, transition.wipe2.alpha, transition.wipe2.edge);
 

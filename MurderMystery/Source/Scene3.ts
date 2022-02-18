@@ -46,7 +46,7 @@ namespace MurderMystery {
           T0018: "Kein Problem.",
         },
 
-        narrator: {
+        Kriminalamt: {
           T0000: "Guten Tag, was kann ich für Sie tun?",
           T0001: "Mrs. Grisham hat uns schon informiert, dass sie die Informationen erhalten dürfen.",
           T0002: "Natürlich, ich kann Ihnen auch die Tatwaffe schicken und sobald der Laborbericht da ist, diesen auch.",
@@ -59,8 +59,8 @@ namespace MurderMystery {
       ƒS.Sound.fade(sound.backgroundBibliothek, 0.07, 0.1, true); 
       await ƒS.Location.show(locations.bibliothek);
       await ƒS.update(transition.circle.duration, transition.circle.alpha, transition.circle.edge);
-      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(30, 100));
-      await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
+      await ƒS.Character.show(characters.camille, characters.camille.pose.happy, ƒS.positionPercent(15, 100));
+      await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positionPercent(75, 100));
       await ƒS.update(1);
       await ƒS.Speech.tell(characters.violet, text.violet.T0000);
       await ƒS.Speech.tell(characters.violet, text.violet.T0001);
@@ -86,12 +86,10 @@ namespace MurderMystery {
         await ƒS.Speech.tell(characters.camille, text.camille.T0002);
           await ƒS.Character.hide(characters.violet);
           await ƒS.update(1);
-
-           
+  
           await ƒS.Speech.tell(characters.camille, text.camille.T0003);
-          await ƒS.Speech.tell(characters.camille, text.camille.T0004);
-
           await ƒS.Character.animate(characters.safe, characters.safe.pose.normal, fromCenterToCenter());
+          await ƒS.Speech.tell(characters.camille, text.camille.T0004);
           ƒS.Inventory.add(items.safe);
           await ƒS.Character.hide(characters.safe);
           await ƒS.update(1);
@@ -104,14 +102,14 @@ namespace MurderMystery {
           ƒS.Sound.play(sound.anruf, 0.5, false); 
           await ƒS.Speech.tell(characters.camille, text.camille.T0006);
           await ƒS.Speech.tell(characters.camille, text.camille.T0007);
-          await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
+          await ƒS.Speech.tell(characters.kriminalamt, text.Kriminalamt.T0000);
           await ƒS.Speech.tell(characters.camille, text.camille.T0008);
-          await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
+          await ƒS.Speech.tell(characters.kriminalamt, text.Kriminalamt.T0001);
           await ƒS.Speech.tell(characters.camille, text.camille.T0009);
-          await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
+          await ƒS.Speech.tell(characters.kriminalamt, text.Kriminalamt.T0002);
           await ƒS.Speech.tell(characters.camille, text.camille.T0010);
-          await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
-          await ƒS.Speech.tell(characters.narrator, text.narrator.T0004);
+          await ƒS.Speech.tell(characters.kriminalamt, text.Kriminalamt.T0003);
+          await ƒS.Speech.tell(characters.kriminalamt, text.Kriminalamt.T0004);
           await ƒS.Speech.tell(characters.camille, text.camille.T0011);
 
           delete firstDialogueElementOptions.iSayNo;
@@ -119,7 +117,7 @@ namespace MurderMystery {
 
      
           if (firstDialogueElement === firstDialogueElementOptions["iSayOk"]) {  
-              await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positions.bottomright);
+              await ƒS.Character.show(characters.violet, characters.violet.pose.happy, ƒS.positionPercent(75, 100));
               await ƒS.update(1);
               await ƒS.Speech.tell(characters.camille, text.camille.T0012);
               await ƒS.Speech.tell(characters.violet, text.violet.T0005);
@@ -144,6 +142,7 @@ namespace MurderMystery {
       await ƒS.Character.animate(characters.camille, characters.camille.pose.happy, fromLeftToRight());
 
       await ƒS.Character.hide(characters.camille);
+      await ƒS.Character.hide(characters.violet);
       ƒS.Sound.fade(sound.backgroundBibliothek, 0, 0.2, true);
       await ƒS.update(1);
   

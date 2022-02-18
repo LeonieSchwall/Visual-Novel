@@ -141,6 +141,9 @@ declare namespace MurderMystery {
         narrator: {
             name: string;
         };
+        kriminalamt: {
+            name: string;
+        };
         smith: {
             name: string;
         };
@@ -148,45 +151,35 @@ declare namespace MurderMystery {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
                 happy: string;
-                upset: string;
             };
         };
         violet: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
                 happy: string;
-                upset: string;
             };
         };
         luna: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
                 happy: string;
-                upset: string;
             };
         };
         james: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
                 happy: string;
-                upset: string;
             };
         };
         marie: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                angry: string;
                 happy: string;
-                upset: string;
             };
         };
         schlüssel: {
@@ -263,6 +256,7 @@ declare namespace MurderMystery {
     function incrementSound(): void;
     function decrementSound(): void;
     function showCredits(): void;
+    let delay: ƒS.Signal;
 }
 declare namespace MurderMystery {
     function Scene1(): ƒS.SceneReturn;
