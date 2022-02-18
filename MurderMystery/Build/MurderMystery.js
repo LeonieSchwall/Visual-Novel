@@ -31,7 +31,7 @@ var MurderMystery;
                 T0008: "Das ist die Frage hier.",
                 T0009: "Ich vermute Sie sind in James verliebt und haben herausgefunden, dass Mr. Grisham sein Vater war.",
                 T0010: "Da dieser ihn nicht anerkennen wollte haben Sie sich an Ihrem Chef gerächt um so James zu helfen.",
-                T0011: "Nur leider erbt dieser nichts, da seine Familie in seinem Testament bestimmt an erster Stelle stehen.",
+                T0011: "Nur leider erbt dieser nichts, da seine Familie in seinem Testament bestimmt an erster Stelle steht.",
                 T0012: "Leider tue ich das nicht und werde Sie nun verhaften lassen.",
                 T0013: "Was gibt es Mr. Smith?",
                 T0014: "Oh nein, dann war es etwa doch James Taylor?",
@@ -860,6 +860,8 @@ var MurderMystery;
                 delete firstDialogueElementOptions.iSayYes;
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+                await MurderMystery.ƒS.Character.hide(MurderMystery.characters.violet);
+                await MurderMystery.ƒS.update(1);
                 MurderMystery.ƒS.Sound.play(MurderMystery.sound.anruf, 0.5, false);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0006);
                 await MurderMystery.ƒS.Speech.tell(MurderMystery.characters.camille, text.camille.T0007);
@@ -949,8 +951,6 @@ var MurderMystery;
                 await MurderMystery.ƒS.Character.hide(MurderMystery.characters.knife);
                 await MurderMystery.ƒS.update(1);
                 delete firstDialogueElementOptions.iSayYes;
-                //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
-                // await delay();
             }
             if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
                 MurderMystery.ƒS.Sound.play(MurderMystery.sound.paper2, 0.5, false);
@@ -1040,10 +1040,10 @@ var MurderMystery;
                 T0000: "Vielen Dank für Ihre Mitarbeit.",
                 T0001: "Ich würde mich nun gerne noch einmal in den Räumen umsehen.",
                 T0002: "Hoffentlich finde ich hier einen Hinweis, der es eindeutig macht wer der Täter ist.",
-                T0003: "Tatsächlich, hinter den Büchern im Regal sieht es aus als wären hier etwas versteckt.",
+                T0003: "Tatsächlich, hinter den Büchern im Regal sieht es aus als wäre  hier etwas versteckt.",
                 T0004: "Ist das etwa Gift?",
                 T0005: "Ich schaue mal im Internet nach was das sein könnte.",
-                T0006: "Das muss ein eine flüssige Version davon sein ",
+                T0006: "Das muss eine flüssige Version davon sein ",
                 T0007: "Das würde ja bedeuten Mr. Grisham wurde vergiftet.",
                 T0008: "Aber warum hat er sich dann noch die Pulsadern aufgeschnitten?",
                 T0009: "Mal sehen ob die beiden Angestellten etwas in Ihren Räumen haben das mir weiterhilft.",
@@ -1158,11 +1158,11 @@ var MurderMystery;
                 T0007: "Was sie in der Zeit gemacht hat weiß ich nicht genau.",
                 T0008: "Das könnte sein, aber warum sollte sie das postmortem tun?",
                 T0009: "Naja sie konnte Mr. Grisham wohl nicht sonderlich leiden, da er streng war.",
-                T0010: "Genau, Die Tochter Luna war zum Todeszeitpunkt zwar Zuhause, allerdings hat sie kein Motiv und wirkt auch nicht wie ein Täter.",
+                T0010: "Genau, die Tochter Luna war zum Todeszeitpunkt zwar Zuhause, allerdings hat sie kein Motiv und wirkt auch nicht wie ein Täter.",
                 T0011: "Sie würde ich ausschließen, genauso wie Mrs. Grisham, die erst nach dem Todeszeitpunkt zurückkam.",
                 T0012: "Ich vermute er ist der uneheliche Sohn von Mr. Grisham und hegte daher einen Groll.",
                 T0013: "Mr. Grisham wusste von einem Sohn allerdings bezweifle ich das er wusste das James sein Sohn ist.",
-                T0014: "Das könnte sein, allerdings kam ja heraus das Mr. Grisham vergiftet wurde und das ist keinen Tat im Affekt.",
+                T0014: "Das könnte sein, allerdings kam ja heraus das Mr. Grisham vergiftet wurde und das ist keine Tat im Affekt.",
                 T0015: "Ja über die weiß ich nichts.",
                 T0016: "Denken Sie es könnte einen Tat aus Eifersucht sein?",
                 T0017: "Marie ist wohl in James verliebt, das behauptet Luna. Was wenn Mr. Grisham ebenfalls in Marie verliebt war.",

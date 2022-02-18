@@ -99,6 +99,8 @@ namespace MurderMystery {
           delete firstDialogueElementOptions.iSayYes;
         }
         if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
+          await ƒS.Character.hide(characters.violet);
+          await ƒS.update(1);
           ƒS.Sound.play(sound.anruf, 0.5, false); 
           await ƒS.Speech.tell(characters.camille, text.camille.T0006);
           await ƒS.Speech.tell(characters.camille, text.camille.T0007);

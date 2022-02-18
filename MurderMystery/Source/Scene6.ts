@@ -9,11 +9,11 @@ namespace MurderMystery {
             T0001: "Ich würde mich nun gerne noch einmal in den Räumen umsehen.",
 
             T0002: "Hoffentlich finde ich hier einen Hinweis, der es eindeutig macht wer der Täter ist.",
-            T0003: "Tatsächlich, hinter den Büchern im Regal sieht es aus als wären hier etwas versteckt.",
+            T0003: "Tatsächlich, hinter den Büchern im Regal sieht es aus als wäre  hier etwas versteckt.",
 
             T0004: "Ist das etwa Gift?",
             T0005: "Ich schaue mal im Internet nach was das sein könnte.",
-            T0006: "Das muss ein eine flüssige Version davon sein ",
+            T0006: "Das muss eine flüssige Version davon sein ",
             T0007: "Das würde ja bedeuten Mr. Grisham wurde vergiftet.",
             T0008: "Aber warum hat er sich dann noch die Pulsadern aufgeschnitten?",
 

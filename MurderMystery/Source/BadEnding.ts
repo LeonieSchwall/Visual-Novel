@@ -34,7 +34,7 @@ namespace MurderMystery {
           T0008: "Das ist die Frage hier.",
           T0009: "Ich vermute Sie sind in James verliebt und haben herausgefunden, dass Mr. Grisham sein Vater war.",
           T0010: "Da dieser ihn nicht anerkennen wollte haben Sie sich an Ihrem Chef gerächt um so James zu helfen.",
-          T0011: "Nur leider erbt dieser nichts, da seine Familie in seinem Testament bestimmt an erster Stelle stehen.",
+          T0011: "Nur leider erbt dieser nichts, da seine Familie in seinem Testament bestimmt an erster Stelle steht.",
           T0012: "Leider tue ich das nicht und werde Sie nun verhaften lassen.",
 
           T0013: "Was gibt es Mr. Smith?",

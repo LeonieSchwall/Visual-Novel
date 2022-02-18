@@ -52,18 +52,15 @@ namespace MurderMystery {
         await ƒS.Character.hide(characters.knife);
         await ƒS.update(1);
         delete firstDialogueElementOptions.iSayYes;
-        //await ƒS.Speech.tell(characters.camille, text.camille.T0000);
-          // await delay();
       }
+
       if (firstDialogueElement === firstDialogueElementOptions["iSayNo"]) {
         ƒS.Sound.play(sound.paper2, 0.5, false); 
         await ƒS.Character.animate(characters.labor,characters.labor.pose.normal,fromCenterToCenter());
         // Novel Page
         ƒS.Text.setClass("novel-page");
         //ƒS.Text.addClass("text");
-        ƒS.Text.print(
-          "Der Laborbericht ergibt, das Mr. Grisham einen Herzinfarkt hatte und ihm die Pulsadern erst nach seinem Tod aufgeschnitten wurden."
-        );
+        ƒS.Text.print("Der Laborbericht ergibt, das Mr. Grisham einen Herzinfarkt hatte und ihm die Pulsadern erst nach seinem Tod aufgeschnitten wurden.");
         ƒS.Inventory.add(items.labor);
 
         await ƒS.Character.hide(characters.labor);
