@@ -18,5 +18,6 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 ##  Abgabe
 - [Konzept](./Konzept/)
 - [Archiv](./Archiv/)
-<li><a href="https://leonieschwall.github.io/Visual-Novel/MurderMystery/" target="_blank">Visual Novel</a></li>
-<li><a href="https://github.com/LeonieSchwall/Visual-Novel" target="_blank">Repository</a></li>
+- [Visual Novel](https://leonieschwall.github.io/Visual-Novel/MurderMystery/)
+- [Repository](https://github.com/LeonieSchwall/Visual-Novel)
+
