@@ -35,7 +35,6 @@ namespace MurderMystery {
 
   export let sound = {
     //music 
-    backgroundfire: "./Audio/Fireplace.wav",
     backgroundBibliothek: "./Audio/backgroundBibliothek.wav",
     backgroundBuero: "./Audio/backgroundBuero.wav",
     backgroundEnde: "./Audio/backgroundEnde.wav",
@@ -101,27 +100,27 @@ namespace MurderMystery {
   export let locations = {
     Startscreen: {
       name: "Startscreen",
-      background: "./Images/background/Startscreen.png", //uno fehlero h
+      background: "./Images/background/Startscreen.jpg", 
     },
     buero: {
       name: "Büro",
-      background: "./Images/background/Buero.png",
+      background: "./Images/background/Buero.jpg",
     },
     bibliothek: {
       name: "Bibliothek/Tatort",
-      background: "./Images/background/Bibliothek.png",
+      background: "./Images/background/Bibliothek.jpg",
     },
     haus: {
       name: "Wohnsitz der Familie",
-      background: "./Images/background/Haus.png",
+      background: "./Images/background/Haus.jpg",
     },
     kammer: {
       name: "Dienstbotenzimmer",
-      background: "./Images/background/Kammer.png",
+      background: "./Images/background/Kammer.jpg",
     },
     wohnzimmer: {
       name: "Wohnzimmer",
-      background: "./Images/background/Wohnzimmer.png",
+      background: "./Images/background/Wohnzimmer.jpg",
     },
   };
 
@@ -265,8 +264,8 @@ namespace MurderMystery {
   }
   export function fromCenterToCenter(): ƒS.AnimationDefinition {
     return {
-      start: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.1, 0.1) },
-      end: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.1, 0.1) },
+      start: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.5, 0.5) },
+      end: { translation: ƒS.positions.center, scaling: new ƒS.Position(0.5, 0.5) },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
     };

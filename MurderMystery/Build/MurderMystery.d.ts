@@ -41,7 +41,6 @@ declare namespace MurderMystery {
         };
     };
     let sound: {
-        backgroundfire: string;
         backgroundBibliothek: string;
         backgroundBuero: string;
         backgroundEnde: string;
