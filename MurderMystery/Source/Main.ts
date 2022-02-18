@@ -43,7 +43,6 @@ namespace MurderMystery {
     backgroundKammer: "./Audio/backgroundKammer.wav",
     backgroundWohnzimmer: "./Audio/backgroundWohnzimmer.wav",
     //sound
-    clock: "./Audio/Old Clock.wav",
     paper: "./Audio/paper1.wav",
     paper2: "./Audio/paper2.wav",
     safe: "./Audio/Safe1.wav",
@@ -63,38 +62,33 @@ namespace MurderMystery {
     },
     labor: {
       name: "Laborbericht",
-      description: "Der Bericht enthält die Todesursache.",
+      description: "Todesursache Herzstillstand.",
       image: "./Images/Items/Laborbericht.png",
     },
     safe: {
       name: "Safe",
-      description: "Was wohl in diesem Safe ist?",
+      description: "Safeinhalt ist unklar.",
       image: "./Images/Items/Safe.png",
     },
     book: {
       name: "Tagebuch",
-      description: "Bild gehört wohl zu diesem Eintrag.",
+      description: "James Taylor ist Grishams Sohn.",
       image: "./Images/Items/Tagebuch.png",
     },
     knife: {
       name: "Küchenmesser",
-      description: "Hier ist also das fehlende Messer und die Mordwaffe.",
+      description: "Keine Mordwaffe, denn das war Schweineblut.",
       image: "./Images/Items/Messer.png",
     },
     paper: {
       name: "Notizzettel",
-      description: "Was soll das Kauderwelsch denn bedeuten?",
+      description: "James ist mein S",
       image: "./Images/Items/Notiz.png",
     },
     poison: {
       name: "Gift",
-      description: "Mordwaffe?",
+      description: "Mordwaffe",
       image: "./Images/Items/Gift.png",
-    },
-    safecode: {
-      name: "Zahlencode",
-      description: "Das ist bestimmt der Cade für den Safe.",
-      image: "./Images/Items/Geld.png",
     },
     money: {
       name: "Geldstapel",
@@ -260,14 +254,6 @@ namespace MurderMystery {
     };
   }
 
-  export function fromleftToCenter(): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positions.bottomleft },
-      end: { translation: ƒS.positions.bottomcenter },
-      duration: 1.5,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
-    };
-  }
 
   export function fromlefterToLeft(): ƒS.AnimationDefinition {
     return {

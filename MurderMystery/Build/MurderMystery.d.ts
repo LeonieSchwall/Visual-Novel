@@ -45,7 +45,6 @@ declare namespace MurderMystery {
         backgroundHaus: string;
         backgroundKammer: string;
         backgroundWohnzimmer: string;
-        clock: string;
         paper: string;
         paper2: string;
         safe: string;
@@ -87,11 +86,6 @@ declare namespace MurderMystery {
             image: string;
         };
         poison: {
-            name: string;
-            description: string;
-            image: string;
-        };
-        safecode: {
             name: string;
             description: string;
             image: string;
@@ -240,7 +234,6 @@ declare namespace MurderMystery {
         };
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
-    function fromleftToCenter(): ƒS.AnimationDefinition;
     function fromlefterToLeft(): ƒS.AnimationDefinition;
     function fromCenterToCenter(): ƒS.AnimationDefinition;
     let dataForSave: {
